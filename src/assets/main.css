@@ -1,106 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
   font-weight: normal;
 }
 
-html {
-  scroll-behavior: smooth;
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
 }
 
-:root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
-
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
-
-  --color-accent: #1cdb63;
-  --color-accent-soft: #00ff5e;
-  --color-accent-mute: #0e692f;
-
-  --vt-c-indigo: #2c3e50;
-
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: #ebebeba3;
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
 }
 
-body {
-  background-color: var(--vt-c-black);
-  color: var(--vt-c-text-dark-2);
-  transition:
-    background-color 0.3s ease-in-out,
-    color 0.3s ease-in-out;
-  line-height: 1.6;
-}
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
 
-h1,
-h2 {
-  color: var(--color-accent);
-}
-
-.bg-color {
-  background-color: var(--vt-c-black);
-}
-
-.bg-color-mute {
-  background-color: var(--vt-c-black-mute);
-}
-
-.bg-color-soft {
-  background-color: var(--vt-c-black-soft);
-}
-
-.c-accent {
-  color: var(--color-accent);
-}
-
-.accent-shadow-box {
-  box-shadow: 0 0 5px var(--color-accent-soft);
-}
-
-.accent-shadow-text {
-  text-shadow: 0 0 5px var(--color-accent-soft);
-}
-
-.hover-accent:hover {
-  transition: 0.2s ease-in-out;
-  color: var(--color-accent);
-  text-shadow: 0 0 3px var(--color-accent-soft);
-}
-
-.hover-accent-shadow-box:hover {
-  box-shadow: 0 0 20px var(--color-accent-mute);
-}
-
-.inner-shadow {
-  box-shadow: inset 1px 2px 5px #0000002c;
-}
-
-button {
-  border: 1px solid var(--color-accent);
-  color: var(--color-accent);
-}
-
-input {
-  background-color: transparent;
-}
-
-select {
-  background-color: var(--vt-c-black-mute);
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
 }
