@@ -21,14 +21,13 @@ onMounted(async () => {
   }
 })
 
-const goTo = () => {
-  const route = '/'
-  router.push(route)
+const goBack = () => {
+  router.push('/')
 }
 </script>
 
 
 <template>
-  <DrawerHead :back-to-func="goTo" :title="'Избранное'" />
+  <DrawerHead :back-to-func="goBack" :title="'Избранное'" />
   <List :items="favorites" is-favorites />
 </template>

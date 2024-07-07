@@ -8,13 +8,13 @@ defineProps({
 
 
 <template>
-  <header class="flex justify-between border-b border-zinc-500 px-8 py-3">
+  <header class="flex justify-between border-b border-zinc-500 px-4 sm:px-8 py-3">
     <router-link to="/"
       ><div class="flex items-center">
         <img src="/logo.png" alt="Logo" class="w-10 mr-4" />
         <div>
           <h2 class="c-accent accent-shadow-text text-xl uppercase">qalqa Sneakers</h2>
-          <p>Магазин лучших кросовок</p>
+          <p class="md:block hidden">Магазин лучших кросовок</p>
         </div>
       </div></router-link
     >
@@ -25,18 +25,18 @@ defineProps({
         class="flex items-center gap-3 cursor-pointer hover-accent"
       >
         <img src="/cart.svg" alt="Cart" />
-        <b>{{ totalPrice }} ₽</b>
+        <b class="md:block hidden">{{ totalPrice }} ₽</b>
       </li>
       <router-link to="/favorites">
         <li class="flex items-center gap-3 cursor-pointer hover-accent">
           <img src=" /heart.svg" alt="Cart" />
-          <span>Избранное</span>
+          <span class="md:block hidden">Избранное</span>
         </li>
       </router-link>
       <router-link to="/profile">
         <li class="flex items-center gap-3 cursor-pointer hover-accent">
           <img src=" /profile.svg" alt="Cart" />
-          <span>Профиль</span>
+          <span class="md:block hidden">Профиль</span>
         </li>
       </router-link>
     </ul>
