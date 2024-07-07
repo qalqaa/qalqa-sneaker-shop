@@ -13,7 +13,7 @@ defineProps({
       ><div class="flex items-center">
         <img src="/logo.png" alt="Logo" class="w-10 mr-4" />
         <div>
-          <h2 class="c-accent accent-shadow-text text-xl uppercase">qalqa Sneakers</h2>
+          <h1 class="c-accent font-bold accent-shadow-text text-2xl">q{\}qa Sneakers</h1>
           <p class="md:block hidden">Магазин лучших кросовок</p>
         </div>
       </div></router-link
