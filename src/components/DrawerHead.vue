@@ -1,13 +1,14 @@
 <script setup>
-import { inject } from 'vue'
-
-const { closeCart } = inject('cart')
+defineProps({
+  title: String,
+  backToFunc: Function
+})
 </script>
 
 <template>
   <div class="flex items-center gap-5 mb-5">
     <svg
-      @click="closeCart"
+      @click="backToFunc"
       class="opacity-50 cursor-pointer rotate-180 transition hover:opacity-100 hover:-translate-x-1"
       width="16"
       height="14"
@@ -30,6 +31,6 @@ const { closeCart } = inject('cart')
       />
     </svg>
 
-    <h2 class="align-middle text-2xl font-bold">Корзина</h2>
+    <h2 class="align-middle text-3xl font-bold">{{ title }}</h2>
   </div>
 </template>

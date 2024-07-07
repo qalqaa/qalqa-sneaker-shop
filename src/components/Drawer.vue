@@ -40,7 +40,7 @@ const buttonDisabled = computed(() => isLoading.value || cartIsEmpty.value)
 <template>
   <div @click="closeCart" class="fixed top-0 left-0 w-full h-full bg-black/70 z-20"></div>
   <div class="bg-color-mute w-96 h-full fixed right-0 top-0 z-30 p-10">
-    <DrawerHead />
+    <DrawerHead :backToFunc="closeCart" title="Корзина" />
 
     <div v-if="!totalPrice || orderId" class="flex h-full items-center">
       <infoBlock

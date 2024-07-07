@@ -30,13 +30,15 @@ defineProps({
       <router-link to="/favorites">
         <li class="flex items-center gap-3 cursor-pointer hover-accent">
           <img src=" /heart.svg" alt="Cart" />
-          <span>Закладки</span>
+          <span>Избранное</span>
         </li>
       </router-link>
-      <li class="flex items-center gap-3 cursor-pointer hover-accent">
-        <img src=" /profile.svg" alt="Cart" />
-        <span>Профиль</span>
-      </li>
+      <router-link to="/profile">
+        <li class="flex items-center gap-3 cursor-pointer hover-accent">
+          <img src=" /profile.svg" alt="Cart" />
+          <span>Профиль</span>
+        </li>
+      </router-link>
     </ul>
   </header>
 </template>

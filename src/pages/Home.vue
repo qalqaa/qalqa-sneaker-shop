@@ -113,7 +113,6 @@ const fetchItems = async () => {
 
 onMounted(async () => {
   const localCart = [localStorage.getItem('cart')]
-  console.log(localCart)
   if (localCart[0] !== null) {
     cart.value = localCart ? JSON.parse(localCart) : []
   }

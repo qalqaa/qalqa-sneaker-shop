@@ -3,8 +3,11 @@ import { onMounted, ref } from 'vue'
 import axios from 'axios'
 
 import List from '../components/List.vue'
+import DrawerHead from '@/components/DrawerHead.vue'
+import { useRouter } from 'vue-router'
 
 const favorites = ref([])
+const router = useRouter()
 
 onMounted(async () => {
   try {
@@ -17,11 +20,15 @@ onMounted(async () => {
     console.error(error)
   }
 })
+
+const goTo = () => {
+  const route = '/'
+  router.push(route)
+}
 </script>
 
 
 <template>
-  <h2 class="text-3xl font-bold mb-8">Мои закладки</h2>
-
+  <DrawerHead :back-to-func="goTo" :title="'Избранное'" />
   <List :items="favorites" is-favorites />
 </template>
