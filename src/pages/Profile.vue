@@ -13,16 +13,19 @@ const goBack = () => {
   <DrawerHead :back-to-func="goBack" :title="'Мой Профиль'" />
   <div class="flex mt-7">
     <div class="w-1/5">
-      <h2></h2>
+      <!-- TODO:Добавить промежуточный роутинг -->
       <ul class="flex flex-col gap-5">
         <li>
           <span class="text-xl font-semibold c-accent">Личные данные</span>
         </li>
+        <!-- Сделать страницу на которую будут загружаться orders c нужным id -->
         <li>
           <span class="text-xl font-semibold">Мои заказы</span>
         </li>
       </ul>
     </div>
+    <!-- TODO:Добавить авторизацию и возможность предзаполнения этих полей, 
+     в ином случаее они должны быть скрыты заглушкой "Войти" -->
     <div class="w-4/5">
       <div>
         <h2 class="text-2xl font-semibold mb-4">Персональные данные</h2>
