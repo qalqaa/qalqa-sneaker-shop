@@ -3,15 +3,12 @@ using Autorisation.Endpoints;
 using Microsoft.EntityFrameworkCore;
 using qalqasneakershop.Data;
 using qalqasneakershop.Data.Identity;
-using qalqasneakershop.Controllers;
-using qalqasneakershop.Models;
-using AutoMapper;
 using Autorisation.Interfaces;
 using Autorisation;
 using Autorisation.Services;
 using Autorisation.Repositories;
-using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.CookiePolicy;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -61,6 +58,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseCookiePolicy(new CookiePolicyOptions
+{
+    MinimumSameSitePolicy = SameSiteMode.Strict,
+    HttpOnly = HttpOnlyPolicy.Always,
+    Secure = CookieSecurePolicy.Always
+});
+
 app.UseRouting();
 
 app.UseEndpoints(endpoints =>
@@ -78,14 +82,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
-
-app.UseCors(b =>
-{
-    b.WithOrigins("http://localhost:5173", "https://localhost:5173");
-    b.AllowAnyHeader();
-    b.AllowAnyMethod();
-    b.AllowCredentials();
-});
 
 app.UseAuthentication();
 app.UseAuthorization();

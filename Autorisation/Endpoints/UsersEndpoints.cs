@@ -25,10 +25,14 @@ namespace Autorisation.Endpoints
 
         private static async Task<IResult> Login(
             LoginUserRequest request, 
-            UsersService usersService)
+            UsersService usersService,
+            HttpContext context)
         {
             var token = await usersService.Login(request.Email, request.Password);
-            return Results.Ok(token); 
+
+            context.Response.Cookies.Append("tasty-cookies", token);
+
+            return Results.Ok(); 
         }
     }
 }
