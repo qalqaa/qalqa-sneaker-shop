@@ -27,18 +27,6 @@ namespace qalqasneakershop
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllers();
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowSpecificOrigins",
-                    builder =>
-                    {
-                        builder.WithOrigins("http://localhost:5173", "https://localhost:5173",
-                        "https://localhost:7228")
-                            .AllowAnyMethod()
-                            .AllowAnyHeader();
-                    });
-            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -51,8 +39,6 @@ namespace qalqasneakershop
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseCors("AllowSpecificOrigins");
 
             app.UseAuthorization();
 

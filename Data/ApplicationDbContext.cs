@@ -21,7 +21,7 @@ namespace qalqasneakershop.Data
     }
     public class ApplicationUserDbContext : DbContext
     {
-        public ApplicationUserDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationUserDbContext(DbContextOptions<ApplicationUserDbContext> options)
             : base(options)
         {
         }

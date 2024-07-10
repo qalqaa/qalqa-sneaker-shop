@@ -532,3 +532,4 @@ C:\Users\OniMinetods\source\projects\backendDevShop\obj\Debug\net8.0\refint\back
 C:\Users\OniMinetods\source\projects\backendDevShop\obj\Debug\net8.0\backend.pdb
 C:\Users\OniMinetods\source\projects\backendDevShop\obj\Debug\net8.0\backend.genruntimeconfig.cache
 C:\Users\OniMinetods\source\projects\backendDevShop\obj\Debug\net8.0\ref\backend.dll
+C:\Users\OniMinetods\source\projects\backendDevShop\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

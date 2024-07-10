@@ -38,13 +38,4 @@ namespace qalqasneakershop.Controllers
             return Ok(item);
         }
     }
-    [Route("[controller]")]
-    public class TestController : ControllerBase
-    {
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok("CORS is working!");
-        }
-    }
 }
