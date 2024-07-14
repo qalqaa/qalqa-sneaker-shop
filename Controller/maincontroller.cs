@@ -11,11 +11,20 @@ namespace qalqasneakershop.Controllers
     [Route("api/[controller]")]
     public class ItemsController : ControllerBase
     {
+        private readonly IItemRepository _itemRepository;
         private readonly ApplicationDbContext _context;
 
-        public ItemsController(ApplicationDbContext context)
+        public ItemsController(IItemRepository itemRepository, ApplicationDbContext context)
         {
+            _itemRepository = itemRepository;
             _context = context;
+        }
+
+        [HttpGet("sorted")]
+        public async Task<IActionResult> GetSortedItems(string? sortOrder, string? searchString)
+        {
+            var items = await _itemRepository.GetAllItemsAsync(sortOrder, searchString);
+            return Ok(items);
         }
 
         [HttpGet]
