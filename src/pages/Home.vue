@@ -91,9 +91,7 @@ const fetchItems = async () => {
       params.title = `*${filters.searchQuery}*`
     }
 
-    const { data } = await axios.get(`https://4c860bad2146c5b3.mokky.dev/items`, {
-      params
-    })
+    const { data } = await axios.get(`https://localhost:7228/api/items`)
 
     if (data.length === 0) {
       isEmpty.value = true
