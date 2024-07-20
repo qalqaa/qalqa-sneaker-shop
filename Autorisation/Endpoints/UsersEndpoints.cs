@@ -8,31 +8,42 @@ namespace Autorisation.Endpoints
         public static IEndpointRouteBuilder MapUsersEndpoints(this IEndpointRouteBuilder app)
         {
             app.MapPost("register", Register);
-
             app.MapPost("login", Login);
-
             return app;
         }
 
         private static async Task<IResult> Register(
-            RegisterUserRequest request, 
+            RegisterUserRequest request,
             UsersService usersService)
         {
-            await usersService.Register(request.UserName, request.Email, request.Password);
-
-            return Results.Ok();
+            try
+            {
+                await usersService.Register(request.UserName, request.Email, request.Password);
+                return Results.Ok(new { Message = "Registration successful" });
+            }
+            catch (Exception ex)
+            {
+                return Results.BadRequest(new { Error = ex.Message });
+            }
         }
 
         private static async Task<IResult> Login(
-            LoginUserRequest request, 
+            LoginUserRequest request,
             UsersService usersService,
             HttpContext context)
         {
-            var token = await usersService.Login(request.Email, request.Password);
+            try
+            {
+                var token = await usersService.Login(request.Email, request.Password);
+                context.Response.Cookies.Append("tasty-cookies", token);
 
-            context.Response.Cookies.Append("tasty-cookies", token);
-
-            return Results.Ok(); 
+                var response = new { Token = token };
+                return Results.Json(response);
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(detail: ex.Message, statusCode: StatusCodes.Status401Unauthorized);
+            }
         }
     }
 }

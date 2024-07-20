@@ -7,5 +7,6 @@ namespace Autorisation.Interfaces
     {
         Task Add(User user);
         Task<User> GetByEmail(string email);
+        Task<bool> EmailExists(string email);
     }
 }

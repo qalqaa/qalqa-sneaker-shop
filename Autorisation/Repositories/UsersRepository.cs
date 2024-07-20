@@ -27,13 +27,18 @@ namespace Autorisation.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<User> GetByEmail(string email)
+        public async Task<User?> GetByEmail(string email)
         {
             var userEntity = await _context.Users
                 .AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Email == email) ?? throw new Exception("User not found");
+                .FirstOrDefaultAsync(u => u.Email == email);
 
-            return _mapper.Map<User>(userEntity);
+            return userEntity != null ? _mapper.Map<User>(userEntity) : null;
+        }
+
+        public async Task<bool> EmailExists(string email)
+        {
+            return await _context.Users.AnyAsync(u => u.Email == email);
         }
     }
 }
