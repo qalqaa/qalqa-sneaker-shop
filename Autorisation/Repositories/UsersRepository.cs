@@ -23,13 +23,13 @@ namespace Autorisation.Repositories
         {
             var userEntity = _mapper.Map<UserEntity>(user);
 
-            await _context.Users.AddAsync(userEntity);
+            await _context.UsersFull.AddAsync(userEntity);
             await _context.SaveChangesAsync();
         }
 
         public async Task<User?> GetByEmail(string email)
         {
-            var userEntity = await _context.Users
+            var userEntity = await _context.UsersFull
                 .AsNoTracking()
                 .FirstOrDefaultAsync(u => u.Email == email);
 
@@ -38,7 +38,15 @@ namespace Autorisation.Repositories
 
         public async Task<bool> EmailExists(string email)
         {
-            return await _context.Users.AnyAsync(u => u.Email == email);
+            return await _context.UsersFull.AnyAsync(u => u.Email == email);
+        }
+        public async Task<User?> GetById(Guid id)
+        {
+            var userEntity = await _context.UsersFull
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.UserID == id);
+
+            return userEntity != null ? _mapper.Map<User>(userEntity) : null;
         }
     }
 }

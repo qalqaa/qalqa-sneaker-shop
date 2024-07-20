@@ -1,3 +1,4 @@
+using Autorisation.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using qalqasneakershop.Data;
@@ -11,13 +12,29 @@ namespace qalqasneakershop.Controllers
     [Route("api/[controller]")]
     public class ItemsController : ControllerBase
     {
+        private readonly UsersService _usersService;
         private readonly IItemRepository _itemRepository;
         private readonly ApplicationDbContext _context;
 
-        public ItemsController(IItemRepository itemRepository, ApplicationDbContext context)
+        public ItemsController(IItemRepository itemRepository, ApplicationDbContext context, UsersService usersService)
         {
             _itemRepository = itemRepository;
             _context = context;
+            _usersService = usersService;
+        }
+
+        [HttpGet("{userId}/favourites")]
+        public async Task<IActionResult> GetFavourites(Guid userId)
+        {
+            try
+            {
+                var sneakers = await _usersService.GetFavouriteSneakers(userId);
+                return Ok(sneakers);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
         [HttpGet("sorted")]
