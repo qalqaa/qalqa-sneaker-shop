@@ -1,14 +1,10 @@
 <script setup>
 import { useRouter } from 'vue-router'
-import DrawerHead from '@/components/DrawerHead.vue'
+import AuthRegHeader from '@/components/AuthRegHeader.vue'
 import axios from 'axios'
 import { reactive } from 'vue'
 
 const router = useRouter()
-
-const goBack = () => {
-  router.push('/')
-}
 
 const user = reactive({
   userName: '',
@@ -28,10 +24,12 @@ const login = async () => {
     console.error('Error:', error)
   }
 }
+
+const isState = () => router.currentRoute.value.path === '/auth'
 </script>
 
 <template>
-  <DrawerHead :back-to-func="goBack" :title="'Регистация'" />
+  <AuthRegHeader :state="isState()" />
   <div class="flex mt-7 test">
     <div class="w-full">
       <form @submit.prevent="login">
