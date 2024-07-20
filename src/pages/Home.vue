@@ -10,8 +10,6 @@ const { cart, addToCart, removeFromCart } = inject('cart')
 const items = ref([])
 const isEmpty = ref(false)
 
-const isAuth = ref(false)
-
 const filters = reactive({
   sortOrder: 'title_desc',
   searchString: ''

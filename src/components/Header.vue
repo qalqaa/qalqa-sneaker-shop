@@ -1,15 +1,5 @@
 <script setup>
-import { inject, ref } from 'vue'
-
 const emit = defineEmits(['openCart'])
-
-const isAuth = inject('isAuth')
-
-const profileRoute = ref('/profile')
-
-if (!isAuth.value) {
-  profileRoute.value = '/auth'
-}
 
 defineProps({
   totalPrice: Number
@@ -42,7 +32,7 @@ defineProps({
           <span class="md:block hidden">Избранное</span>
         </li>
       </router-link>
-      <router-link :to="profileRoute">
+      <router-link to="/profile">
         <li class="flex items-center gap-3 cursor-pointer hover-accent">
           <img src=" /profile.svg" alt="Cart" />
           <span class="md:block hidden">Профиль</span>

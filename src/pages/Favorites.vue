@@ -1,10 +1,11 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, inject } from 'vue'
 import axios from 'axios'
+import { useRouter } from 'vue-router'
 
 import List from '../components/List.vue'
 import DrawerHead from '@/components/DrawerHead.vue'
-import { useRouter } from 'vue-router'
+import NotAuthPlate from '@/components/NotAuthPlate.vue'
 
 const favorites = ref([])
 const router = useRouter()
@@ -24,10 +25,20 @@ onMounted(async () => {
 const goBack = () => {
   router.push('/')
 }
+
+const isAuth = inject('isAuth')
+
+const goToAuth = () => {
+  router.push('/auth')
+}
 </script>
 
-
 <template>
-  <DrawerHead :back-to-func="goBack" :title="'Избранное'" />
-  <List :items="favorites" is-favorites />
+  <div v-if="isAuth">
+    <DrawerHead :back-to-func="goBack" :title="'Избранное'" />
+    <List :items="favorites" is-favorites />
+  </div>
+  <div v-else>
+    <NotAuthPlate :go-to-auth="goToAuth" />
+  </div>
 </template>
