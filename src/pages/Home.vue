@@ -11,8 +11,8 @@ const items = ref([])
 const isEmpty = ref(false)
 
 const filters = reactive({
-  sortBy: 'title',
-  searchQuery: ''
+  sortOrder: 'title_desc',
+  searchString: ''
 })
 
 const onClickAddPlus = (item) => {
@@ -26,11 +26,11 @@ const onClickAddPlus = (item) => {
 }
 
 const onChangeSelect = (event) => {
-  filters.sortBy = event.target.value
+  filters.sortOrder = event.target.value
 }
 
 const onChangeSearchInput = debounce((event) => {
-  filters.searchQuery = event.target.value
+  filters.searchString = event.target.value
 }, 500)
 
 const addToFavorite = async (item) => {
@@ -84,14 +84,14 @@ const fetchFavorites = async () => {
 const fetchItems = async () => {
   try {
     const params = {
-      sortBy: filters.sortBy
+      sortOrder: filters.sortOrder
     }
 
-    if (filters.searchQuery) {
-      params.title = `*${filters.searchQuery}*`
+    if (filters.searchString) {
+      params.searchString = `${filters.searchString}`
     }
 
-    const { data } = await axios.get(`https://localhost:7228/api/items`)
+    const { data } = await axios.get(`https://localhost:7228/api/items/sorted`, { params })
 
     if (data.length === 0) {
       isEmpty.value = true
@@ -133,7 +133,6 @@ watch(cart, () => {
 watch(filters, fetchItems)
 </script>
 
-
 <template>
   <div class="flex justify-between items-center flex-wrap">
     <h2 class="text-3xl font-bold md:mb-8 mb-2">Все кроссовки</h2>
@@ -142,9 +141,9 @@ watch(filters, fetchItems)
         @change="onChangeSelect"
         class="w-1/2 px-4 outline-none bg-color-soft inner-shadow rounded-md"
       >
-        <option value="title">По названию</option>
+        <option value="title_desc">По названию</option>
         <option value="price">По цене (возрастанию)</option>
-        <option value="-price">По цене (убыванию)</option>
+        <option value="price_desc">По цене (убыванию)</option>
       </select>
       <div class="w-1/2 relative">
         <img class="absolute top-3 left-4" src="/search.svg" alt="search" />
