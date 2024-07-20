@@ -113,7 +113,7 @@ const isFormValid = computed(() => user.email && user.password && !errors.email 
 </template>
 
 <style scoped>
-li > label {
+label {
   position: absolute;
   top: -5px;
   left: 10px;
