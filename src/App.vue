@@ -4,6 +4,10 @@ import { provide, ref, watch, computed } from 'vue'
 import Header from './components/Header.vue'
 import Drawer from './components/Drawer.vue'
 
+const isAuth = ref(false)
+
+provide('isAuth', isAuth)
+
 /*Корзина*/
 const cart = ref([])
 
