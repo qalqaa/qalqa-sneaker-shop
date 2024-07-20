@@ -19,7 +19,7 @@ namespace Autorisation.Endpoints
             try
             {
                 await usersService.Register(request.UserName, request.Email, request.Password);
-                return Results.Ok(new { Message = "Registration successful" });
+                return Results.Ok(new { Message = "Регистрация успешно выполнена!" });
             }
             catch (Exception ex)
             {

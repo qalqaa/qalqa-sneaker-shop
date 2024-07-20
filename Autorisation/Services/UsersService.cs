@@ -24,7 +24,7 @@ namespace Autorisation.Services
         {
             if (await _usersRepository.EmailExists(email))
             {
-                throw new Exception("Email is already registered");
+                throw new Exception("Данный пользователь уже существует!");
             }
 
             var hashedPassword = _passwordHasher.Generate(password);
@@ -35,13 +35,13 @@ namespace Autorisation.Services
         public async Task<string> Login(string email, string password)
         {
             var user = await _usersRepository.GetByEmail(email)
-                       ?? throw new Exception("User not found");
+                       ?? throw new Exception("Пользователь не найден!");
 
             var result = _passwordHasher.Verify(password, user.Password);
 
             if (!result)
             {
-                throw new Exception("Failed to login");
+                throw new Exception("Ошибка входа!");
             }
 
             var token = _jwtProvider.GenerateToken(user);
