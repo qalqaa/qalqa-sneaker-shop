@@ -58,6 +58,7 @@ namespace qalqasneakershop.Controllers
                 item.ImageUrl,
                 item.Description,
                 item.Rating,
+                item.Reviews,
             }).ToList();
             return Ok(result);
         }
