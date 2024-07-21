@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import axios from 'axios'
 
 import DrawerHead from '@/components/cart/DrawerHead.vue'
+import Rating from '@/components/ui/Raiting.vue'
 
 const item = ref({})
 
@@ -150,16 +151,7 @@ onUnmounted(() => {
         </div>
         <div class="w-2/3">
           <h2 class="text-2xl font-semibold">Отзывы</h2>
-          <p class="mt-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, quis alias? Sit laboriosam
-            aliquid error nesciunt nihil, blanditiis temporibus eaque fuga cupiditate dignissimos
-            placeat corporis quia ipsa, officia quidem at! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Aut, quis alias? Sit laboriosam aliquid error nesciunt nihil,
-            blanditiis temporibus eaque fuga cupiditate dignissimos placeat corporis quia ipsa,
-            officia quidem at! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, quis
-            alias? Sit laboriosam aliquid error nesciunt nihil, blanditiis temporibus eaque fuga
-            cupiditate dignissimos placeat corporis quia ipsa, officia quidem at!
-          </p>
+          <Rating />
         </div>
       </div>
     </div>
