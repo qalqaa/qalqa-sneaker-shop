@@ -57,5 +57,3 @@ provide('cart', { cart, closeCart, openCart, addToCart, removeFromCart })
     </div>
   </div>
 </template>
-
-<style scoped></style>

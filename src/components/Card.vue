@@ -1,5 +1,7 @@
 <script setup>
-defineProps({
+import { useRouter } from 'vue-router'
+
+const props = defineProps({
   id: Number,
   imgUrl: String,
   title: String,
@@ -9,10 +11,17 @@ defineProps({
   onClickFavorite: Function,
   onClickAdd: Function
 })
+
+const router = useRouter()
+
+const goToDetails = () => {
+  router.push({ name: 'CardOpened', params: { id: props.id } })
+}
 </script>
 
 <template>
   <div
+    @click="goToDetails"
     class="relative card-hitbox bg-color-soft p-10 rounded-xl p-8 transition hover:-translate-y-1 inner-shadow"
   >
     <img
@@ -42,6 +51,10 @@ defineProps({
 </template>
 
 <style scoped>
+.card-hitbox {
+  cursor: pointer;
+}
+
 .card-hitbox:hover > .card-lightning {
   filter: drop-shadow(0 0 20px var(--color-accent-mute));
 }

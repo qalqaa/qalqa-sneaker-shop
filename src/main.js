@@ -10,13 +10,20 @@ import Favorites from './pages/Favorites.vue'
 import Profile from './pages/Profile.vue'
 import Auth from './pages/Auth.vue'
 import Register from './pages/Register.vue'
+import CardOpened from './components/CardOpened.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/favorites', name: 'Favorites', component: Favorites },
   { path: '/profile', name: 'Profile', component: Profile },
   { path: '/register', name: 'Register', component: Register },
-  { path: '/auth', name: 'Auth', component: Auth }
+  { path: '/auth', name: 'Auth', component: Auth },
+  {
+    path: '/product/:id',
+    name: 'CardOpened',
+    component: CardOpened,
+    props: true
+  }
 ]
 
 const router = createRouter({
