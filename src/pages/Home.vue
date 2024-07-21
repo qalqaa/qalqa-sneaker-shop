@@ -3,7 +3,7 @@ import { inject, reactive, watch, ref, onMounted } from 'vue'
 import axios from 'axios'
 import debounce from 'lodash.debounce'
 
-import List from '../components/List.vue'
+import List from '../components/home/List.vue'
 
 const { cart, addToCart, removeFromCart } = inject('cart')
 
