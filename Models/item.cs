@@ -10,7 +10,7 @@ namespace qalqasneakershop.Models
         public string ImageUrl { get; set; } = string.Empty;
         public ItemDescription Description { get; set; }
         public float Rating { get; set; }
-        public ItemReview Reviews { get; set; }
+        public List<ItemReview> Reviews { get; set; }
     }
     public class ItemDescription
     {
@@ -30,4 +30,5 @@ namespace qalqasneakershop.Models
         public string Reviewer { get; set; } = string.Empty;
         public string Text { get; set; } = string.Empty;
     }
+    
 }
