@@ -6,14 +6,38 @@ import axios from 'axios'
 import DrawerHead from '@/components/cart/DrawerHead.vue'
 import UserReviews from '@/components/users/UserReviews.vue'
 
-const item = ref({})
+const item = ref({
+  id: 0,
+  title: '',
+  price: 0,
+  imageUrl: '',
+  description: {
+    info1: '',
+    info2: '',
+    material: '',
+    brand: '',
+    season: '',
+    color: '',
+    country: '',
+    article: ''
+  },
+  rating: 4.7,
+  reviews: [
+    {
+      estimation: 4,
+      id: 1,
+      reviewer: 'pisun',
+      text: 'ну пойдет'
+    }
+  ]
+})
 
 const route = useRoute()
 const router = useRouter()
 const id = route.params.id
 
 const getData = async () => {
-  const { data } = await axios.get(`https://4c860bad2146c5b3.mokky.dev/items/${id}`)
+  const { data } = await axios.get(`https://localhost:7228/api/Items/info/${id}`)
   item.value = data
 }
 
@@ -86,9 +110,7 @@ onUnmounted(() => {
           <b class="c-accent">{{ item.price }} руб.</b>
         </div>
         <p class="mt-2">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo sed inventore, consectetur
-          autem ab totam, veritatis eos sit doloribus rerum, quaerat maiores alias neque non
-          adipisci. Nihil fugit eligendi cum?
+          {{ item.description.info1 }}
         </p>
         <div class="flex gap-2 mt-4">
           <button
@@ -107,49 +129,42 @@ onUnmounted(() => {
     </div>
     <div :class="isOpened ? 'open' : 'close'" class="flex flex-col">
       <p class="mt-5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, quis alias? Sit laboriosam
-        aliquid error nesciunt nihil, blanditiis temporibus eaque fuga cupiditate dignissimos
-        placeat corporis quia ipsa, officia quidem at! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Aut, quis alias? Sit laboriosam aliquid error nesciunt nihil, blanditiis
-        temporibus eaque fuga cupiditate dignissimos placeat corporis quia ipsa, officia quidem at!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, quis alias? Sit laboriosam
-        aliquid error nesciunt nihil, blanditiis temporibus eaque fuga cupiditate dignissimos
-        placeat corporis quia ipsa, officia quidem at!
+        {{ item.description.info2 }}
       </p>
       <div class="flex gap-10 mt-7">
         <div class="flex flex-col gap-5 mb-6 w-1/3">
           <div class="flex gap-2">
             <span>Материал: </span>
             <div class="flex-1 border-zinc-400 border-b border-dashed"></div>
-            <b>Хороший</b>
+            <b>{{ item.description.material }}</b>
           </div>
           <div class="flex gap-2">
             <span>Бренд: </span>
             <div class="flex-1 border-zinc-400 border-b border-dashed"></div>
-            <b>Солидный</b>
+            <b>{{ item.description.brand }}</b>
           </div>
           <div class="flex gap-2">
             <span>Сезон: </span>
             <div class="flex-1 border-zinc-400 border-b border-dashed"></div>
-            <b>Демисезон</b>
+            <b>{{ item.description.season }}</b>
           </div>
           <div class="flex gap-2">
             <span>Цвет: </span>
             <div class="flex-1 border-zinc-400 border-b border-dashed"></div>
-            <b>Черный</b>
+            <b>{{ item.description.color }}</b>
           </div>
           <div class="flex gap-2">
             <span>Страна производства: </span>
             <div class="flex-1 border-zinc-400 border-b border-dashed"></div>
-            <b>Вьетнам</b>
+            <b>{{ item.description.country }}</b>
           </div>
           <div class="flex gap-2">
             <span>Артикул: </span>
             <div class="flex-1 border-zinc-400 border-b border-dashed"></div>
-            <b>YAPIDOR2004</b>
+            <b>{{ item.description.article }}</b>
           </div>
         </div>
-        <UserReviews />
+        <UserReviews :rating="item.rating" :reviews="item.reviews" />
       </div>
     </div>
   </div>
