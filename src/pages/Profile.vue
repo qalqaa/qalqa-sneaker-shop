@@ -2,8 +2,8 @@
 import { inject } from 'vue'
 import { useRouter } from 'vue-router'
 
-import DrawerHead from '@/components/DrawerHead.vue'
-import NotAuthPlate from '@/components/NotAuthPlate.vue'
+import DrawerHead from '@/components/cart/DrawerHead.vue'
+import NotAuthPlate from '@/components/ui/ux/NotAuthPlate.vue'
 
 const router = useRouter()
 

@@ -4,8 +4,8 @@ import axios from 'axios'
 import { useRouter } from 'vue-router'
 
 import List from '../components/List.vue'
-import DrawerHead from '@/components/DrawerHead.vue'
-import NotAuthPlate from '@/components/NotAuthPlate.vue'
+import DrawerHead from '@/components/cart/DrawerHead.vue'
+import NotAuthPlate from '@/components/ui/ux/NotAuthPlate.vue'
 
 const favorites = ref([])
 const router = useRouter()

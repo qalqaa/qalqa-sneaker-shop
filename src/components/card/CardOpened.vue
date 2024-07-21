@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import axios from 'axios'
 
-import DrawerHead from '@/components/DrawerHead.vue'
+import DrawerHead from '@/components/cart/DrawerHead.vue'
 
 const item = ref({})
 
