@@ -3,7 +3,7 @@ import { onMounted, ref, inject } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 
-import List from '../components/List.vue'
+import List from '../components/home/List.vue'
 import DrawerHead from '@/components/cart/DrawerHead.vue'
 import NotAuthPlate from '@/components/ui/ux/NotAuthPlate.vue'
 
