@@ -1,7 +1,7 @@
 <script setup>
 import { provide, ref, watch, computed } from 'vue'
 
-import Header from './components/ui/Header.vue'
+import Header from './components/home/Header.vue'
 import Drawer from './components/cart/Drawer.vue'
 
 const isAuth = ref(false)
