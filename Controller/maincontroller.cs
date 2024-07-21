@@ -1,9 +1,11 @@
 using Autorisation.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using qalqasneakershop.Data;
 using qalqasneakershop.Models;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace qalqasneakershop.Controllers
@@ -23,20 +25,6 @@ namespace qalqasneakershop.Controllers
             _usersService = usersService;
         }
 
-        [HttpGet("{userId}/favourites")]
-        public async Task<IActionResult> GetFavourites(Guid userId)
-        {
-            try
-            {
-                var sneakers = await _usersService.GetFavouriteSneakers(userId);
-                return Ok(sneakers);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-        }
-
         [HttpGet("sorted")]
         public async Task<IActionResult> GetSortedItems(string? sortOrder, string? searchString)
         {
@@ -48,10 +36,33 @@ namespace qalqasneakershop.Controllers
         public async Task<ActionResult<List<Item>>> GetItems()
         {
             var items = await _context.Items.ToListAsync();
-            return Ok(items);
+            var result = items.Select(item => new
+            {
+                item.Id,
+                item.Title,
+                item.Price,
+                item.ImageUrl,
+            }).ToList();
+            return Ok(result);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("info")]
+        public async Task<ActionResult<List<ItemDescription>>> GetDescriptionItems()
+        {
+            var items = await _context.Items.ToListAsync();
+            var result = items.Select(item => new
+            {
+                item.Id,
+                item.Title,
+                item.Price,
+                item.ImageUrl,
+                item.Description,
+                item.Rating,
+            }).ToList();
+            return Ok(result);
+        }
+
+        [HttpGet("info/{id}")]
         public async Task<ActionResult<Item>> GetItemById(int id)
         {
             var item = await _context.Items.FindAsync(id);
@@ -64,4 +75,5 @@ namespace qalqasneakershop.Controllers
             return Ok(item);
         }
     }
+
 }

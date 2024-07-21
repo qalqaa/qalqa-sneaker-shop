@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using qalqasneakershop.Data.Identity;
 using qalqasneakershop.Models;
 using Autorisation.Data;
+using System.Text.Json;
+using System.Reflection.Emit;
 
 namespace qalqasneakershop.Data
 {
@@ -12,9 +14,19 @@ namespace qalqasneakershop.Data
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Item>()
+                .Property(i => i.Description)
+                .HasConversion(
+                    v => JsonSerializer.Serialize(v, new JsonSerializerOptions { WriteIndented = true }),
+                    v => JsonSerializer.Deserialize<ItemDescription>(v, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }));
+            modelBuilder.Entity<Item>()
+                .Property(i => i.Rating)
+                .HasConversion(
+                    v => JsonSerializer.Serialize(v, new JsonSerializerOptions { WriteIndented = true}),
+                    v => JsonSerializer.Deserialize<ItemRating>(v, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }));
         }
     }
     public class ApplicationUserDbContext : DbContext
