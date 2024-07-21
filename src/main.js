@@ -10,7 +10,7 @@ import Favorites from './pages/Favorites.vue'
 import Profile from './pages/Profile.vue'
 import Auth from './pages/Auth.vue'
 import Register from './pages/Register.vue'
-import CardOpened from './components/CardOpened.vue'
+import CardOpened from './components/card/CardOpened.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
