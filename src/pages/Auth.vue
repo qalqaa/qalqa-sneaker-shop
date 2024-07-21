@@ -1,7 +1,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 
-import AuthRegHeader from '@/components/ui/ux/AuthRegHeader.vue'
+import AuthRegHeader from '@/components/ui/AuthRegHeader.vue'
 import axios from 'axios'
 import { reactive, computed } from 'vue'
 

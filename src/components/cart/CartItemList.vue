@@ -1,5 +1,5 @@
 <script setup>
-import CartItem from './CartItem.vue'
+import CartItem from '../cart/CartItem.vue'
 import { inject } from 'vue'
 
 const { cart, removeFromCart } = inject('cart')

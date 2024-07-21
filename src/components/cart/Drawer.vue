@@ -3,8 +3,8 @@ import axios from 'axios'
 import { inject, ref, computed } from 'vue'
 
 import DrawerHead from './DrawerHead.vue'
-import CartItemList from './CartItemList.vue'
-import infoBlock from './infoBlock.vue'
+import CartItemList from '../cart/CartItemList.vue'
+import infoBlock from '../ui/infoBlock.vue'
 
 const props = defineProps({
   totalPrice: Number,

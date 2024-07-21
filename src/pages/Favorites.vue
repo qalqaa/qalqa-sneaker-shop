@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router'
 
 import List from '../components/home/List.vue'
 import DrawerHead from '@/components/cart/DrawerHead.vue'
-import NotAuthPlate from '@/components/ui/ux/NotAuthPlate.vue'
+import NotAuthPlate from '@/components/ui/NotAuthPlate.vue'
 
 const favorites = ref([])
 const router = useRouter()
