@@ -49,7 +49,7 @@ provide('cart', { cart, closeCart, openCart, addToCart, removeFromCart })
 <template>
   <Drawer v-if="cartOpen" :total-price="totalPrice" :vat-price="vatPrice" />
   <div
-    class="bg-color-mute m-auto rounded-none shadow-xl md:rounded-xl md:w-4/5 w-full md:mt-10 mt-0"
+    class="bg-color-mute m-auto rounded-none shadow-xl md:rounded-xl md:w-4/5 w-full md:my-10 my-0"
   >
     <Header :total-price="totalPrice" @open-cart="openCart" />
     <div class="p-5 sm:p-10">

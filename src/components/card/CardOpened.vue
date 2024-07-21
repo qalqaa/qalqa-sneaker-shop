@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import axios from 'axios'
 
 import DrawerHead from '@/components/cart/DrawerHead.vue'
-import Rating from '@/components/ui/Raiting.vue'
+import UserReviews from '@/components/users/UserReviews.vue'
 
 const item = ref({})
 
@@ -68,7 +68,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div>
+  <div class="py-5">
     <DrawerHead :back-to-func="goBack" :title="item.title" />
     <div class="flex mb-5">
       <div
@@ -149,10 +149,7 @@ onUnmounted(() => {
             <b>YAPIDOR2004</b>
           </div>
         </div>
-        <div class="w-2/3">
-          <h2 class="text-2xl font-semibold">Отзывы</h2>
-          <Rating />
-        </div>
+        <UserReviews />
       </div>
     </div>
   </div>

@@ -47,16 +47,16 @@ export default {
   width: 40px;
   height: 40px;
   cursor: pointer;
-  fill: transparent;
-  stroke: var(--vt-c-black);
-  stroke-width: 1.2;
+  fill: var(--vt-c-black);
 }
 
 .star.filled {
   fill: var(--color-accent);
+  filter: drop-shadow(0 0 2px var(--color-accent))
 }
 
 .star.hovered {
   fill: var(--color-accent-hl);
+  filter: drop-shadow(0 0 3px var(--color-accent-hl));
 }
 </style>
