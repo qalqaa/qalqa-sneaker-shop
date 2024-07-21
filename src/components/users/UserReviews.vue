@@ -7,15 +7,15 @@ defineProps({
 })
 </script>
 <template>
-  <div class="w-2/3">
+  <div class="lg:w-2/3">
     <h2 class="text-2xl font-semibold mb-3">Отзывы</h2>
-    <div class="flex justify-between mb-3">
+    <div class="flex sm:flex-row flex-col justify-between mb-3">
       <div class="flex gap-3">
         <h3 class="text-xl">{{ rating }}</h3>
         <Rating />
       </div>
       <button
-        class="mb-2 w-1/3 font-bold rounded-xl px-2 py-1 hover-accent-shadow-box active:text-white disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed transition cursor-pointer"
+        class="mb-2 sm:w-1/3 w-full font-bold rounded-xl px-2 py-1 hover-accent-shadow-box active:text-white disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed transition cursor-pointer"
       >
         Оставить отзыв
       </button>

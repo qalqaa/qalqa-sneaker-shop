@@ -31,6 +31,6 @@ defineProps({
       />
     </svg>
 
-    <h2 class="align-middle text-3xl font-bold">{{ title }}</h2>
+    <h2 class="align-middle lg:text-3xl md:text-2xl sm:text-xl text-md font-bold">{{ title }}</h2>
   </div>
 </template>

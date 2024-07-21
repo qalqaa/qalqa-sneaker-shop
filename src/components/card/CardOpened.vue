@@ -94,9 +94,9 @@ onUnmounted(() => {
 <template>
   <div class="py-5">
     <DrawerHead :back-to-func="goBack" :title="item.title" />
-    <div class="flex mb-5">
+    <div class="flex lg:flex-row flex-col mb-5">
       <div
-        class="flex flex-col w-2/3 gap-5 bg-color-soft inner-shadow px-4 transition glow-area"
+        class="flex flex-col lg:w-2/3 w-full gap-5 bg-color-soft inner-shadow px-4 transition glow-area"
         @mousemove="handleMouseMove"
         @mouseenter="handleMouseEnter"
         @mouseleave="handleMouseLeave"
@@ -104,21 +104,21 @@ onUnmounted(() => {
         <img class="z-10 transition card-lightning" :src="item.imageUrl" alt="Sneaker" />
         <div class="glow" :style="glowStyle"></div>
       </div>
-      <div class="w-1/3 p-5">
-        <div class="flex text-2xl gap-2">
+      <div class="lg:w-1/3 w-full p-5">
+        <div class="flex lg:text-2xl gap-2">
           <span>Цена:</span>
           <b class="c-accent">{{ item.price }} руб.</b>
         </div>
         <p class="mt-2">
           {{ item.description.info1 }}
         </p>
-        <div class="flex gap-2 mt-4">
+        <div class="flex w-full justify-stretch gap-2 mt-4">
           <button
-            class="w-full font-bold rounded-xl p-3 hover-accent-shadow-box active:text-white disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed transition cursor-pointer"
+            class="font-bold w-full max-h-12 rounded-xl py-3 hover-accent-shadow-box active:text-white disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed transition cursor-pointer"
           >
             В корзину
           </button>
-          <img :src="'/like-2.svg'" alt="likeButton" class="cursor-pointer w-1/5" />
+          <img :src="'/like-2.svg'" alt="likeButton" class="cursor-pointer h-12" />
         </div>
       </div>
     </div>
@@ -131,8 +131,8 @@ onUnmounted(() => {
       <p class="mt-5">
         {{ item.description.info2 }}
       </p>
-      <div class="flex gap-10 mt-7">
-        <div class="flex flex-col gap-5 mb-6 w-1/3">
+      <div class="flex lg:flex-row flex-col gap-10 mt-7">
+        <div class="flex flex-col gap-5 mb-6 lg:w-1/3 w-full">
           <div class="flex gap-2">
             <span>Материал: </span>
             <div class="flex-1 border-zinc-400 border-b border-dashed"></div>
@@ -238,7 +238,7 @@ onUnmounted(() => {
 
 .open {
   opacity: 1;
-  max-height: 500px;
+  max-height: 1000px;
   transition:
     max-height 0.5s ease,
     opacity 0.5s ease;
