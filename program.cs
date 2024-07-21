@@ -51,6 +51,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<ISneakersRepository, SneakersRepository>();
 builder.Services.AddScoped<UsersService>();
 
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
