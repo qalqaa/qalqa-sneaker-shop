@@ -9,16 +9,24 @@ using Autorisation.Services;
 using Autorisation.Repositories;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.CookiePolicy;
+using Autorisation.Extensions;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+var jwtOptions = configuration.GetSection(nameof(JwtOptions)).Get<JwtOptions>() ?? throw new InvalidOperationException("JWT options not configured properly."); ;
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+builder.Logging.AddConsole();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddScoped<IItemRepository, ItemRepository>();
 
 builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -30,7 +38,8 @@ builder.Services.AddCors(options =>
                       policy =>
                       {
                           policy.WithOrigins("http://localhost:5173",
-                                              "https://localhost:5173")
+                                              "https://localhost:5173",
+                                              "https://localhost:7228/favourites")
                                 .AllowAnyMethod()
                                 .AllowAnyHeader()
                                 .AllowCredentials();
@@ -38,6 +47,7 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
+builder.Services.AddApiAuthentication(jwtOptions);
 
 builder.Services.AddDbContext<ApplicationUserDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -53,8 +63,8 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<ISneakersRepository, SneakersRepository>();
 builder.Services.AddScoped<UsersService>();
-
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
+builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
 builder.Services.AddAutoMapper(typeof(DataBaseMappings));
@@ -69,21 +79,15 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseCookiePolicy(new CookiePolicyOptions
-{
-    MinimumSameSitePolicy = SameSiteMode.Strict,
-    HttpOnly = HttpOnlyPolicy.Always,
-    Secure = CookieSecurePolicy.Always
-});
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseCors(MyAllowSpecificOrigins);
-
-app.UseRouting();
 
 app.UseEndpoints(endpoints =>
 {
@@ -99,11 +103,6 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty;
     });
 }
-
-app.UseRouting();
-
-app.UseAuthentication();
-app.UseAuthorization();
 
 app.MapUsersEndpoints();
 

@@ -1,5 +1,9 @@
 using Autorisation.Services;
 using Autorisation.Users;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Autorisation.Endpoints
 {
@@ -9,6 +13,8 @@ namespace Autorisation.Endpoints
         {
             app.MapPost("register", Register);
             app.MapPost("login", Login);
+            app.MapGet("favourites", GetFavourites)
+               .RequireAuthorization();
             return app;
         }
 
@@ -19,7 +25,7 @@ namespace Autorisation.Endpoints
             try
             {
                 await usersService.Register(request.UserName, request.Email, request.Password);
-                return Results.Ok(new { Message = "Р РµРіРёСЃС‚СЂР°С†РёСЏ СѓСЃРїРµС€РЅРѕ РІС‹РїРѕР»РЅРµРЅР°!" });
+                return Results.Ok(new { Message = "Регистрация успешно выполнена!" });
             }
             catch (Exception ex)
             {
@@ -35,7 +41,6 @@ namespace Autorisation.Endpoints
             try
             {
                 var token = await usersService.Login(request.Email, request.Password);
-                context.Response.Cookies.Append("tasty-cookies", token);
 
                 var response = new { Token = token };
                 return Results.Json(response);
@@ -45,5 +50,33 @@ namespace Autorisation.Endpoints
                 return Results.Problem(detail: ex.Message, statusCode: StatusCodes.Status401Unauthorized);
             }
         }
+
+        private static async Task<IResult> GetFavourites(
+        HttpContext context,
+        UsersService usersService)
+        {
+            try
+            {
+                var userIdClaim = context.User.FindFirst(ClaimTypes.NameIdentifier);
+
+                if (userIdClaim == null)
+                {
+                    return Results.Problem("User is not authenticated.", statusCode: StatusCodes.Status401Unauthorized);
+                }
+
+                if (!Guid.TryParse(userIdClaim.Value, out Guid userId))
+                {
+                    return Results.Problem("Invalid user identifier.", statusCode: StatusCodes.Status400BadRequest);
+                }
+
+                var sneakers = await usersService.GetFavouriteSneakers(userId);
+                return Results.Json(sneakers);
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(detail: ex.Message, statusCode: StatusCodes.Status500InternalServerError);
+            }
+        }
+
     }
 }

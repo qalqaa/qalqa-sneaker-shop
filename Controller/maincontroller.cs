@@ -1,4 +1,5 @@
 using Autorisation.Services;
+using Autorisation.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using qalqasneakershop.Models;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Autorisation.Data;
 
 namespace qalqasneakershop.Controllers
 {
@@ -17,12 +19,14 @@ namespace qalqasneakershop.Controllers
         private readonly UsersService _usersService;
         private readonly IItemRepository _itemRepository;
         private readonly ApplicationDbContext _context;
+        private readonly ApplicationUserDbContext _userContext;
 
-        public ItemsController(IItemRepository itemRepository, ApplicationDbContext context, UsersService usersService)
+        public ItemsController(IItemRepository itemRepository, ApplicationDbContext context, UsersService usersService, ApplicationUserDbContext userContext)
         {
             _itemRepository = itemRepository;
             _context = context;
             _usersService = usersService;
+            _userContext = userContext;
         }
 
         [HttpGet("sorted")]
@@ -75,6 +79,25 @@ namespace qalqasneakershop.Controllers
 
             return Ok(item);
         }
+        [Authorize]
+        [HttpGet("test")]
+        public async Task<ActionResult<List<UserEntity>>> GetUsers()
+        {
+            try
+            {
+                var users = await _userContext.UsersFull.ToListAsync();
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Внутренняя ошибка сервера");
+            }
+        }
+        [HttpGet("datatest")]
+        [Authorize]
+        public IActionResult GetData()
+        {
+            return Ok(new { Message = "Authorized access" });
+        }
     }
-
 }
