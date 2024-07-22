@@ -1,5 +1,5 @@
 <script setup>
-import { provide, ref, watch, computed } from 'vue'
+import { provide, ref, watch, computed, onMounted, onUnmounted } from 'vue'
 
 import Header from './components/home/Header.vue'
 import Drawer from './components/cart/Drawer.vue'
@@ -7,6 +7,12 @@ import Drawer from './components/cart/Drawer.vue'
 const isAuth = ref(false)
 
 provide('isAuth', isAuth)
+
+onMounted(() => {})
+
+onUnmounted(() => {
+  localStorage.removeItem('token')
+})
 
 /*Корзина*/
 const cart = ref([])

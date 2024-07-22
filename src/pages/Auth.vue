@@ -2,8 +2,11 @@
 import { useRouter } from 'vue-router'
 
 import AuthRegHeader from '@/components/ui/AuthRegHeader.vue'
-import axios from 'axios'
-import { reactive, computed } from 'vue'
+import { reactive, computed, inject } from 'vue'
+
+import api from '../interceptors/AuthIterseptor'
+
+const isAuth = inject('isAuth')
 
 const user = reactive({
   email: '',
@@ -41,11 +44,14 @@ const login = async () => {
     return
   }
   try {
-    const response = await axios.post('https://localhost:7228/login', {
+    const response = await api.post('/login', {
       email: user.email,
       password: user.password
     })
-    console.log(response.data)
+    const token = response.data.token
+    localStorage.setItem('token', token)
+    isAuth.value = true
+    router.push('/')
   } catch (error) {
     console.error('Error:', error)
   }
