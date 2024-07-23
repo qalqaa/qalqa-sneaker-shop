@@ -1,4 +1,5 @@
 <script setup>
+import {  ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 const props = defineProps({
@@ -17,6 +18,16 @@ const router = useRouter()
 const goToDetails = () => {
   router.push({ name: 'CardOpened', params: { id: props.id } })
 }
+
+const isFavorite = ref(props.isFavorite)
+
+watch(
+  () => props.isFavorite,
+  (newVal) => {
+    isFavorite.value = newVal
+  }
+)
+
 </script>
 
 <template>

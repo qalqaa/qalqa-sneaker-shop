@@ -41,6 +41,27 @@ const getData = async () => {
   item.value = data
 }
 
+
+const isFavorite = ref(false)
+
+const addToFavorite = async (id) => {
+  try {
+    if (!isFavorite.value) {
+      const obj = {
+        item_id: id
+      }
+      await axios.post(`https://4c860bad2146c5b3.mokky.dev/favorites`, obj)
+      return
+    }
+    if (isFavorite.value) {
+      await axios.delete(`https://4c860bad2146c5b3.mokky.dev/favorites/${item.value.id}`)
+      return
+    }
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 const goBack = () => {
   router.push('/')
 }
@@ -83,6 +104,7 @@ const isOpened = ref(false)
 
 onMounted(() => {
   getData()
+  console.log(id)
   animationFrameId = requestAnimationFrame(updateGlowPosition)
 })
 
@@ -114,11 +136,17 @@ onUnmounted(() => {
         </p>
         <div class="flex w-full justify-stretch gap-2 mt-4">
           <button
+            @click="null"
             class="font-bold w-full max-h-12 rounded-xl py-3 hover-accent-shadow-box active:text-white disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed transition cursor-pointer"
           >
             В корзину
           </button>
-          <img :src="'/like-2.svg'" alt="likeButton" class="cursor-pointer h-12" />
+          <img
+            @click="addToFavorite(item.id)"
+            :src="isFavorite ? '/like-2.svg' : '/like-1.svg'"
+            alt="likeButton"
+            class="cursor-pointer h-12"
+          />
         </div>
       </div>
     </div>
