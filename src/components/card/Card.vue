@@ -18,7 +18,7 @@ const store = useStore()
 
 const goToDetails = () => {
   router.push({ name: 'CardOpened', params: { id: props.id } })
-  store.commit('setData', props.isFavorite)
+  store.commit('setFavorite', props.isFavorite)
 }
 </script>
 

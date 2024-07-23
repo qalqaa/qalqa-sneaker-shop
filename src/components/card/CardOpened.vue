@@ -1,13 +1,11 @@
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import axios from 'axios'
 
 import DrawerHead from '@/components/cart/DrawerHead.vue'
 import UserReviews from '@/components/users/UserReviews.vue'
 import { useStore } from 'vuex'
-
-const store = useStore()
 
 const item = ref({
   id: 0,
@@ -35,9 +33,12 @@ const item = ref({
   ]
 })
 
+const store = useStore()
 const route = useRoute()
 const router = useRouter()
 
+const favoriteId = ref(null)
+const isFavorite = ref(store.state.data.favorite)
 const id = route.params.id
 
 const getData = async () => {
@@ -45,19 +46,23 @@ const getData = async () => {
   item.value = data
 }
 
-const isFavorite = computed(() => store.state.data)
-
-const addToFavorite = async (id) => {
+const addToFavorite = async (item) => {
   try {
     if (!isFavorite.value) {
       const obj = {
-        item_id: id
+        item_id: item.id
       }
-      await axios.post(`https://4c860bad2146c5b3.mokky.dev/favorites`, obj)
+
+      isFavorite.value = true
+      const { data } = await axios.post(`https://4c860bad2146c5b3.mokky.dev/favorites`, obj)
+      favoriteId.value = data.id
       return
     }
     if (isFavorite.value) {
-      await axios.delete(`https://4c860bad2146c5b3.mokky.dev/favorites/${item.value.id}`)
+      isFavorite.value = false
+
+      await axios.delete(`https://4c860bad2146c5b3.mokky.dev/favorites/${favoriteId.value}`)
+      favoriteId.value = null
       return
     }
   } catch (err) {
@@ -108,10 +113,15 @@ const isOpened = ref(false)
 onMounted(() => {
   getData()
   animationFrameId = requestAnimationFrame(updateGlowPosition)
+  if (!favoriteId.value) {
+    favoriteId.value = store.state.data.favoriteid
+  }
+  console.log(favoriteId)
 })
 
 onUnmounted(() => {
   cancelAnimationFrame(animationFrameId)
+  store.commit('setFavoriteId', favoriteId.value)
 })
 </script>
 
@@ -144,7 +154,7 @@ onUnmounted(() => {
             В корзину
           </button>
           <img
-            @click="addToFavorite(item.id)"
+            @click="addToFavorite(item)"
             :src="isFavorite ? '/like-2.svg' : '/like-1.svg'"
             alt="likeButton"
             class="cursor-pointer h-12"

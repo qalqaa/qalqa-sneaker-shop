@@ -3,12 +3,18 @@ import { createStore } from 'vuex'
 const store = createStore({
   state() {
     return {
-      data: null
+      data: {
+        favorite: false,
+        favoriteid: null
+      }
     }
   },
   mutations: {
-    setData(state, payload) {
-      state.data = payload
+    setFavorite(state, payload) {
+      state.data.favorite = payload
+    },
+    setFavoriteId(state, payload) {
+      state.data.favoriteid = payload
     }
   }
 })
