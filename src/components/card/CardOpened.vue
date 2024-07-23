@@ -1,10 +1,13 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import axios from 'axios'
 
 import DrawerHead from '@/components/cart/DrawerHead.vue'
 import UserReviews from '@/components/users/UserReviews.vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
 
 const item = ref({
   id: 0,
@@ -34,6 +37,7 @@ const item = ref({
 
 const route = useRoute()
 const router = useRouter()
+
 const id = route.params.id
 
 const getData = async () => {
@@ -41,8 +45,7 @@ const getData = async () => {
   item.value = data
 }
 
-
-const isFavorite = ref(false)
+const isFavorite = computed(() => store.state.data)
 
 const addToFavorite = async (id) => {
   try {
@@ -104,7 +107,6 @@ const isOpened = ref(false)
 
 onMounted(() => {
   getData()
-  console.log(id)
   animationFrameId = requestAnimationFrame(updateGlowPosition)
 })
 

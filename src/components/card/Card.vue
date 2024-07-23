@@ -1,6 +1,6 @@
 <script setup>
-import {  ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 const props = defineProps({
   id: Number,
@@ -14,20 +14,12 @@ const props = defineProps({
 })
 
 const router = useRouter()
+const store = useStore()
 
 const goToDetails = () => {
   router.push({ name: 'CardOpened', params: { id: props.id } })
+  store.commit('setData', props.isFavorite)
 }
-
-const isFavorite = ref(props.isFavorite)
-
-watch(
-  () => props.isFavorite,
-  (newVal) => {
-    isFavorite.value = newVal
-  }
-)
-
 </script>
 
 <template>
@@ -60,13 +52,3 @@ watch(
     </div>
   </div>
 </template>
-
-<style scoped>
-.card-hitbox {
-  cursor: pointer;
-}
-
-.card-hitbox:hover > .card-lightning {
-  filter: drop-shadow(0 0 20px var(--color-accent-mute));
-}
-</style>
