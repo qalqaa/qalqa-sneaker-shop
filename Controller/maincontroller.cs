@@ -1,4 +1,8 @@
 using Autorisation.Services;
+<<<<<<< HEAD
+=======
+using Autorisation.Models;
+>>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +13,7 @@ using Autorisation.Models;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Autorisation.Data;
 
 namespace qalqasneakershop.Controllers
 {
@@ -46,6 +51,7 @@ namespace qalqasneakershop.Controllers
                 item.Title,
                 item.Price,
                 item.ImageUrl,
+<<<<<<< HEAD
                 item.Description,
                 item.Rating
             }).ToList();
@@ -67,9 +73,30 @@ namespace qalqasneakershop.Controllers
                                         .Select(item => item.Rating)
                                         .ToListAsync();
             return Ok(ratings);
+=======
+            }).ToList();
+            return Ok(result);
+>>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("info")]
+        public async Task<ActionResult<List<ItemDescription>>> GetDescriptionItems()
+        {
+            var items = await _context.Items.ToListAsync();
+            var result = items.Select(item => new
+            {
+                item.Id,
+                item.Title,
+                item.Price,
+                item.ImageUrl,
+                item.Description,
+                item.Rating,
+                item.Reviews,
+            }).ToList();
+            return Ok(result);
+        }
+
+        [HttpGet("info/{id}")]
         public async Task<ActionResult<Item>> GetItemById(int id)
         {
             var item = await _context.Items.FindAsync(id);
@@ -82,6 +109,7 @@ namespace qalqasneakershop.Controllers
             return Ok(item);
         }
         [Authorize]
+<<<<<<< HEAD
         [HttpGet("favorites")]
         public async Task<ActionResult<List<Item>>> GetUserFavourites()
         {
@@ -117,6 +145,26 @@ namespace qalqasneakershop.Controllers
             }
 
             return Ok(sneakers);
+=======
+        [HttpGet("test")]
+        public async Task<ActionResult<List<UserEntity>>> GetUsers()
+        {
+            try
+            {
+                var users = await _userContext.UsersFull.ToListAsync();
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Внутренняя ошибка сервера");
+            }
+        }
+        [HttpGet("datatest")]
+        [Authorize]
+        public IActionResult GetData()
+        {
+            return Ok(new { Message = "Authorized access" });
+>>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
         }
     }
 

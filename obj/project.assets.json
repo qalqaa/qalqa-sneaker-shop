@@ -797,6 +797,30 @@
           }
         }
       },
+<<<<<<< HEAD
+=======
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/8.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.JsonPatch": "8.0.7",
+          "Newtonsoft.Json": "13.0.3",
+          "Newtonsoft.Json.Bson": "1.0.2"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+>>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
       "Microsoft.AspNetCore.Razor.Language/6.0.24": {
         "type": "package",
         "compile": {
@@ -2157,6 +2181,22 @@
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json.Bson/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
           }
         }
       },
@@ -4060,6 +4100,24 @@
         "microsoft.aspnetcore.jsonpatch.nuspec"
       ]
     },
+<<<<<<< HEAD
+=======
+    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/8.0.7": {
+      "sha512": "Y8v0z0Zrc28wKxY98sGBwjnHqXeSDFh3VQ5ZEsIxGHD/1g9z2zulDJ8ue6Vww1F4gcUkY9XCQUHljNQu3my35A==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/8.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.xml",
+        "microsoft.aspnetcore.mvc.newtonsoftjson.8.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.newtonsoftjson.nuspec"
+      ]
+    },
+>>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
     "Microsoft.AspNetCore.Razor.Language/6.0.24": {
       "sha512": "kBL6ljTREp/3fk8EKN27mrPy3WTqWUjiqCkKFlCKHUKRO3/9rAasKizX3vPWy4ZTcNsIPmVWUHwjDFmiW4MyNA==",
       "type": "package",
@@ -7088,6 +7146,27 @@
         "packageIcon.png"
       ]
     },
+    "Newtonsoft.Json.Bson/1.0.2": {
+      "sha512": "QYFyxhaABwmq3p/21VrZNYvCg3DaEoN/wUuw5nmfAf0X3HLjgupwhkEWdgfb9nvGAUIv3osmZoD3kKl4jxEmYQ==",
+      "type": "package",
+      "path": "newtonsoft.json.bson/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net45/Newtonsoft.Json.Bson.dll",
+        "lib/net45/Newtonsoft.Json.Bson.pdb",
+        "lib/net45/Newtonsoft.Json.Bson.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.Bson.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.Bson.pdb",
+        "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.Bson.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.Bson.pdb",
+        "lib/netstandard2.0/Newtonsoft.Json.Bson.xml",
+        "newtonsoft.json.bson.1.0.2.nupkg.sha512",
+        "newtonsoft.json.bson.nuspec"
+      ]
+    },
     "NuGet.Common/6.3.1": {
       "sha512": "/WgxNyc9dXl+ZrQJDf5BXaqtMbl0CcDC5GEQITecbHZBQHApTMuxeTMMEqa0Y+PD1CIxTtbRY4jmotKS5dsLuA==",
       "type": "package",
@@ -8481,6 +8560,7 @@
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 8.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.0",
       "Microsoft.AspNetCore.Identity.UI >= 8.0.0",
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 8.0.7",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.0",
@@ -8488,19 +8568,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\OniMinetods\\.nuget\\packages\\": {}
+    "C:\\Users\\artyo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\backend.csproj",
+      "projectUniqueName": "C:\\Users\\artyo\\source\\projects\\backendDevShop\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\backend.csproj",
-      "packagesPath": "C:\\Users\\OniMinetods\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\obj\\",
+      "projectPath": "C:\\Users\\artyo\\source\\projects\\backendDevShop\\backend.csproj",
+      "packagesPath": "C:\\Users\\artyo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\artyo\\source\\projects\\backendDevShop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\OniMinetods\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\artyo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8559,6 +8639,10 @@
           "Microsoft.AspNetCore.Identity.UI": {
             "target": "Package",
             "version": "[8.0.0, )"
+          },
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+            "target": "Package",
+            "version": "[8.0.7, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
