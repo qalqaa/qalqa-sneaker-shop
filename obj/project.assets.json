@@ -797,8 +797,6 @@
           }
         }
       },
-<<<<<<< HEAD
-=======
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson/8.0.7": {
         "type": "package",
         "dependencies": {
@@ -820,7 +818,6 @@
           "Microsoft.AspNetCore.App"
         ]
       },
->>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
       "Microsoft.AspNetCore.Razor.Language/6.0.24": {
         "type": "package",
         "compile": {
@@ -4100,8 +4097,6 @@
         "microsoft.aspnetcore.jsonpatch.nuspec"
       ]
     },
-<<<<<<< HEAD
-=======
     "Microsoft.AspNetCore.Mvc.NewtonsoftJson/8.0.7": {
       "sha512": "Y8v0z0Zrc28wKxY98sGBwjnHqXeSDFh3VQ5ZEsIxGHD/1g9z2zulDJ8ue6Vww1F4gcUkY9XCQUHljNQu3my35A==",
       "type": "package",
@@ -4117,7 +4112,6 @@
         "microsoft.aspnetcore.mvc.newtonsoftjson.nuspec"
       ]
     },
->>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
     "Microsoft.AspNetCore.Razor.Language/6.0.24": {
       "sha512": "kBL6ljTREp/3fk8EKN27mrPy3WTqWUjiqCkKFlCKHUKRO3/9rAasKizX3vPWy4ZTcNsIPmVWUHwjDFmiW4MyNA==",
       "type": "package",
@@ -8568,19 +8562,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\artyo\\.nuget\\packages\\": {}
+    "C:\\Users\\OniMinetods\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\artyo\\source\\projects\\backendDevShop\\backend.csproj",
+      "projectUniqueName": "C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\artyo\\source\\projects\\backendDevShop\\backend.csproj",
-      "packagesPath": "C:\\Users\\artyo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\artyo\\source\\projects\\backendDevShop\\obj\\",
+      "projectPath": "C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\backend.csproj",
+      "packagesPath": "C:\\Users\\OniMinetods\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\artyo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\OniMinetods\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

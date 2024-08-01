@@ -23,10 +23,10 @@ namespace qalqasneakershop.Data
                     v => JsonSerializer.Serialize(v, new JsonSerializerOptions { WriteIndented = true }),
                     v => JsonSerializer.Deserialize<ItemDescription>(v, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }));
             modelBuilder.Entity<Item>()
-                .Property(i => i.Reviews)
+                .Property(i => i.Rating)
                 .HasConversion(
-                    v => JsonSerializer.Serialize(v, new JsonSerializerOptions { WriteIndented = true }),
-                    v => JsonSerializer.Deserialize<List<ItemReview>>(v, new JsonSerializerOptions { PropertyNameCaseInsensitive = true}));
+                    v => JsonSerializer.Serialize(v, new JsonSerializerOptions { WriteIndented = true}),
+                    v => JsonSerializer.Deserialize<ItemRating>(v, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }));
         }
     }
     public class ApplicationUserDbContext : DbContext

@@ -9,25 +9,17 @@ using Autorisation.Services;
 using Autorisation.Repositories;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.CookiePolicy;
-<<<<<<< HEAD
-=======
-using Autorisation.Extensions;
->>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-<<<<<<< HEAD
 using Microsoft.AspNetCore.Authorization;
-=======
->>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
-var jwtOptions = configuration.GetSection(nameof(JwtOptions)).Get<JwtOptions>() ?? throw new InvalidOperationException("JWT options not configured properly."); ;
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
 builder.Logging.AddConsole();
@@ -35,7 +27,6 @@ builder.Logging.AddConsole();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-<<<<<<< HEAD
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -58,8 +49,6 @@ builder.Services.AddAuthorization(optioins => optioins.DefaultPolicy =
             new AuthorizationPolicyBuilder(
                 JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser().Build());
 
-=======
->>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
 builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
@@ -79,7 +68,6 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
-builder.Services.AddApiAuthentication(jwtOptions);
 
 builder.Services.AddDbContext<ApplicationUserDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -118,7 +106,6 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-<<<<<<< HEAD
 
 app.UseCookiePolicy(new CookiePolicyOptions
 {
@@ -126,8 +113,6 @@ app.UseCookiePolicy(new CookiePolicyOptions
     HttpOnly = HttpOnlyPolicy.Always,
     Secure = CookieSecurePolicy.Always
 });
-=======
->>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
 
 app.UseCors(MyAllowSpecificOrigins);
 

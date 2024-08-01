@@ -11,6 +11,7 @@
           "AutoMapper": "13.0.1",
           "BCrypt.Net-Next": "4.0.3",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.7",
+          "Microsoft.AspNetCore.JsonPatch": "8.0.7",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
           "Microsoft.AspNetCore.Identity.UI": "8.0.0",
