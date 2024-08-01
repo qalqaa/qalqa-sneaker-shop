@@ -1,8 +1,4 @@
 using Autorisation.Services;
-<<<<<<< HEAD
-=======
-using Autorisation.Models;
->>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +9,6 @@ using Autorisation.Models;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Autorisation.Data;
 
 namespace qalqasneakershop.Controllers
 {
@@ -51,7 +46,6 @@ namespace qalqasneakershop.Controllers
                 item.Title,
                 item.Price,
                 item.ImageUrl,
-<<<<<<< HEAD
                 item.Description,
                 item.Rating
             }).ToList();
@@ -73,30 +67,9 @@ namespace qalqasneakershop.Controllers
                                         .Select(item => item.Rating)
                                         .ToListAsync();
             return Ok(ratings);
-=======
-            }).ToList();
-            return Ok(result);
->>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
         }
 
-        [HttpGet("info")]
-        public async Task<ActionResult<List<ItemDescription>>> GetDescriptionItems()
-        {
-            var items = await _context.Items.ToListAsync();
-            var result = items.Select(item => new
-            {
-                item.Id,
-                item.Title,
-                item.Price,
-                item.ImageUrl,
-                item.Description,
-                item.Rating,
-                item.Reviews,
-            }).ToList();
-            return Ok(result);
-        }
-
-        [HttpGet("info/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Item>> GetItemById(int id)
         {
             var item = await _context.Items.FindAsync(id);
@@ -109,7 +82,6 @@ namespace qalqasneakershop.Controllers
             return Ok(item);
         }
         [Authorize]
-<<<<<<< HEAD
         [HttpGet("favorites")]
         public async Task<ActionResult<List<Item>>> GetUserFavourites()
         {
@@ -139,33 +111,93 @@ namespace qalqasneakershop.Controllers
             var sneakers = await _context.Items
                                          .Where(i => sneakerIds.Contains(i.Id))
                                          .ToListAsync();
+
             if (sneakers == null || !sneakers.Any())
             {
                 return NotFound("Не найдены кроссовки с таким Id");
             }
 
             return Ok(sneakers);
-=======
-        [HttpGet("test")]
-        public async Task<ActionResult<List<UserEntity>>> GetUsers()
-        {
-            try
-            {
-                var users = await _userContext.UsersFull.ToListAsync();
-                return Ok(users);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Внутренняя ошибка сервера");
-            }
         }
-        [HttpGet("datatest")]
         [Authorize]
-        public IActionResult GetData()
+        [HttpPost("add-to-favorites/{sneakerId}")]
+        public async Task<ActionResult> AddToUserFavourites([FromBody] int sneakerId)
         {
-            return Ok(new { Message = "Authorized access" });
->>>>>>> 5aa180e2dbc20c7529301a4ee3e07dacfb38bda2
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            var userId = Guid.Parse(userIdClaim.Value);
+
+            var user = await _userContext.UsersFull
+                                         .Where(u => u.UserID == userId)
+                                         .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return NotFound("Пользователь не найден");
+            }
+
+            var userFavourites = user.Favourites ?? string.Empty;
+            var favouriteIds = userFavourites
+                .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                .Select(id => int.Parse(id.Trim()))
+                .ToList();
+
+            if (!favouriteIds.Contains(sneakerId))
+            {
+                favouriteIds.Add(sneakerId);
+                user.Favourites = string.Join(",", favouriteIds);
+                await _userContext.SaveChangesAsync();
+                return Ok("Товар добавлен в избранные");
+            }
+            else
+            {
+                return BadRequest("Товар уже находится в избранных");
+            }
         }
+        [Authorize]
+        [HttpDelete("remove-from-favorites/{sneakerId}")]
+        public async Task<ActionResult> RemoveFromUserFavourites(int sneakerId)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            var userId = Guid.Parse(userIdClaim.Value);
+
+            var user = await _userContext.UsersFull
+                                         .Where(u => u.UserID == userId)
+                                         .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return NotFound("Пользователь не найден");
+            }
+
+            var userFavourites = user.Favourites ?? string.Empty;
+            var favouriteIds = userFavourites
+                .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                .Select(id => int.Parse(id.Trim()))
+                .ToList();
+
+            if (favouriteIds.Contains(sneakerId))
+            {
+                favouriteIds.Remove(sneakerId);
+                user.Favourites = string.Join(",", favouriteIds);
+                await _userContext.SaveChangesAsync();
+                return Ok("Товар удален из избранных");
+            }
+            else
+            {
+                return NotFound("Товар не найден в избранных");
+            }
+        }
+
     }
 
 }
