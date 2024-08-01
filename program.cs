@@ -9,16 +9,45 @@ using Autorisation.Services;
 using Autorisation.Repositories;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
+builder.Logging.AddConsole();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<IItemRepository, ItemRepository>();
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+            .AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey =
+                        new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtOptions:SecretKey"]!))
+                };
+            });
+builder.Services.AddAuthorization(optioins => optioins.DefaultPolicy =
+            new AuthorizationPolicyBuilder(
+                JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser().Build());
 
 builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -30,7 +59,8 @@ builder.Services.AddCors(options =>
                       policy =>
                       {
                           policy.WithOrigins("http://localhost:5173",
-                                              "https://localhost:5173")
+                                              "https://localhost:5173",
+                                              "https://localhost:7228/favourites")
                                 .AllowAnyMethod()
                                 .AllowAnyHeader()
                                 .AllowCredentials();
@@ -53,8 +83,8 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<ISneakersRepository, SneakersRepository>();
 builder.Services.AddScoped<UsersService>();
-
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
+builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
 builder.Services.AddAutoMapper(typeof(DataBaseMappings));
@@ -69,10 +99,13 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseCookiePolicy(new CookiePolicyOptions
 {
@@ -82,8 +115,6 @@ app.UseCookiePolicy(new CookiePolicyOptions
 });
 
 app.UseCors(MyAllowSpecificOrigins);
-
-app.UseRouting();
 
 app.UseEndpoints(endpoints =>
 {
@@ -99,11 +130,6 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty;
     });
 }
-
-app.UseRouting();
-
-app.UseAuthentication();
-app.UseAuthorization();
 
 app.MapUsersEndpoints();
 

@@ -1,5 +1,9 @@
 using Autorisation.Services;
 using Autorisation.Users;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Autorisation.Endpoints
 {
@@ -35,7 +39,12 @@ namespace Autorisation.Endpoints
             try
             {
                 var token = await usersService.Login(request.Email, request.Password);
-                context.Response.Cookies.Append("tasty-cookies", token);
+                context.Response.Cookies.Append("tasty-cookies", token, new CookieOptions
+                {
+                    HttpOnly = true, 
+                    SameSite = SameSiteMode.Strict, 
+                    Secure = true 
+                });
 
                 var response = new { Token = token };
                 return Results.Json(response);
@@ -45,5 +54,8 @@ namespace Autorisation.Endpoints
                 return Results.Problem(detail: ex.Message, statusCode: StatusCodes.Status401Unauthorized);
             }
         }
+
+        
+
     }
 }

@@ -20,7 +20,7 @@ namespace Autorisation
         {
             var claims = new[]
             {
-                new Claim("UserId", user.UserId.ToString())
+                new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
             };
 
             var signingCredentials = new SigningCredentials(

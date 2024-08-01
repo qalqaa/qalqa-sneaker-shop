@@ -1,9 +1,13 @@
 using Autorisation.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using qalqasneakershop.Data;
 using qalqasneakershop.Models;
+using Autorisation.Data;
+using Autorisation.Models;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace qalqasneakershop.Controllers
@@ -15,26 +19,14 @@ namespace qalqasneakershop.Controllers
         private readonly UsersService _usersService;
         private readonly IItemRepository _itemRepository;
         private readonly ApplicationDbContext _context;
+        private readonly ApplicationUserDbContext _userContext;
 
-        public ItemsController(IItemRepository itemRepository, ApplicationDbContext context, UsersService usersService)
+        public ItemsController(IItemRepository itemRepository, ApplicationDbContext context, UsersService usersService, ApplicationUserDbContext userContext)
         {
             _itemRepository = itemRepository;
             _context = context;
             _usersService = usersService;
-        }
-
-        [HttpGet("{userId}/favourites")]
-        public async Task<IActionResult> GetFavourites(Guid userId)
-        {
-            try
-            {
-                var sneakers = await _usersService.GetFavouriteSneakers(userId);
-                return Ok(sneakers);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
+            _userContext = userContext;
         }
 
         [HttpGet("sorted")]
@@ -48,7 +40,33 @@ namespace qalqasneakershop.Controllers
         public async Task<ActionResult<List<Item>>> GetItems()
         {
             var items = await _context.Items.ToListAsync();
-            return Ok(items);
+            var result = items.Select(item => new
+            {
+                item.Id,
+                item.Title,
+                item.Price,
+                item.ImageUrl,
+                item.Description,
+                item.Rating
+            }).ToList();
+            return Ok(result);
+        }
+
+        [HttpGet("description")]
+        public async Task<ActionResult<List<ItemDescription>>> GetDescriptionItems()
+        {
+            var descriptions = await _context.Items
+                                             .Select(item => item.Description)
+                                             .ToListAsync();
+            return Ok(descriptions);
+        }
+        [HttpGet("rating")]
+        public async Task<ActionResult<List<ItemRating>>> GetRatingItems()
+        {
+            var ratings = await _context.Items
+                                        .Select(item => item.Rating)
+                                        .ToListAsync();
+            return Ok(ratings);
         }
 
         [HttpGet("{id}")]
@@ -63,5 +81,43 @@ namespace qalqasneakershop.Controllers
 
             return Ok(item);
         }
+        [Authorize]
+        [HttpGet("favorites")]
+        public async Task<ActionResult<List<Item>>> GetUserFavourites()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            var userId = Guid.Parse(userIdClaim.Value);
+
+            var userFavourites = await _userContext.UsersFull
+                                               .Where(u => u.UserID == userId)
+                                               .Select(u => u.Favourites)
+                                               .FirstOrDefaultAsync();
+
+            if (userFavourites == null)
+            {
+                return NotFound("Избранные пользователя не найдены");
+            }
+
+            var sneakerIds = userFavourites
+                .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                .Select(id => int.Parse(id.Trim())) 
+                .ToList();
+
+            var sneakers = await _context.Items
+                                         .Where(i => sneakerIds.Contains(i.Id))
+                                         .ToListAsync();
+            if (sneakers == null || !sneakers.Any())
+            {
+                return NotFound("Не найдены кроссовки с таким Id");
+            }
+
+            return Ok(sneakers);
+        }
     }
+
 }
