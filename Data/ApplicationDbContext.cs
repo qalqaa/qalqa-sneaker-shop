@@ -26,7 +26,7 @@ namespace qalqasneakershop.Data
                 .Property(i => i.Reviews)
                 .HasConversion(
                     v => JsonSerializer.Serialize(v, new JsonSerializerOptions { WriteIndented = true}),
-                    v => JsonSerializer.Deserialize<ItemReviews>(v, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }));
+                    v => JsonSerializer.Deserialize<List<ItemReviews>>(v, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }));
         }
     }
     public class ApplicationUserDbContext : DbContext
