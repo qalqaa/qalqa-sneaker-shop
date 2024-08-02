@@ -35,32 +35,6 @@ const onChangeSearchInput = debounce((event) => {
   filters.searchString = event.target.value
 }, 500)
 
-const addToFavorite = async (item) => {
-  try {
-    if (!item.isFavorite) {
-      const obj = {
-        item_id: item.id
-      }
-
-      item.isFavorite = true
-
-      const { data } = await axios.post(`https://4c860bad2146c5b3.mokky.dev/favorites`, obj)
-
-      item.favoriteId = data.id
-
-      console.log(data)
-    } else {
-      item.isFavorite = false
-
-      await axios.delete(`https://4c860bad2146c5b3.mokky.dev/favorites/${item.favoriteId}`)
-
-      item.favoriteId = null
-    }
-  } catch (err) {
-    console.error(err)
-  }
-}
-
 const fetchFavorites = async () => {
   if (isAuth.value) {
     try {
