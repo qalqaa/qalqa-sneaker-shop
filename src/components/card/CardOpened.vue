@@ -1,7 +1,7 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 import axios from 'axios'
+import { inject, onMounted, onUnmounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 import DrawerHead from '@/components/cart/DrawerHead.vue'
 import UserReviews from '@/components/users/UserReviews.vue'
@@ -37,32 +37,36 @@ const store = useStore()
 const route = useRoute()
 const router = useRouter()
 
+const token = ref(inject('token'))
+
 const favoriteId = ref(null)
 const isFavorite = ref(store.state.data.favorite)
 const id = route.params.id
 
 const getData = async () => {
-  const { data } = await axios.get(`https://localhost:7228/api/Items/info/${id}`)
+  const { data } = await axios.get(`https://localhost:7228/api/Items/${id}`)
   item.value = data
 }
 
-const addToFavorite = async (item) => {
+const addToFavorite = async () => {
   try {
     if (!isFavorite.value) {
-      const obj = {
-        item_id: item.id
-      }
-
       isFavorite.value = true
-      const { data } = await axios.post(`https://4c860bad2146c5b3.mokky.dev/favorites`, obj)
-      favoriteId.value = data.id
+      await axios.post(`https://localhost:7228/api/Items/add-to-favorites`, id, {
+        headers: {
+          Authorization: `Bearer ${token.value}`,
+          'Content-Type': 'application/json'
+        }
+      })
       return
     }
     if (isFavorite.value) {
       isFavorite.value = false
-
-      await axios.delete(`https://4c860bad2146c5b3.mokky.dev/favorites/${favoriteId.value}`)
-      favoriteId.value = null
+      await axios.delete(`https://localhost:7228/api/Items/remove-from-favorites/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      })
       return
     }
   } catch (err) {
@@ -117,6 +121,8 @@ onMounted(() => {
     favoriteId.value = store.state.data.favoriteid
   }
   console.log(favoriteId)
+  token.value = localStorage.getItem('token')
+  console.log(id)
 })
 
 onUnmounted(() => {

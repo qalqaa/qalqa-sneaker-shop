@@ -1,7 +1,7 @@
 <script setup>
-import { inject, reactive, watch, ref, onMounted } from 'vue'
 import axios from 'axios'
 import debounce from 'lodash.debounce'
+import { inject, onMounted, reactive, ref, watch } from 'vue'
 
 import List from '../components/home/List.vue'
 

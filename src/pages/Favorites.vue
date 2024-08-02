@@ -1,32 +1,40 @@
 <script setup>
-import { onMounted, ref, inject } from 'vue'
 import axios from 'axios'
+import { inject, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import List from '../components/home/List.vue'
 import DrawerHead from '@/components/cart/DrawerHead.vue'
 import NotAuthPlate from '@/components/ui/NotAuthPlate.vue'
+import List from '../components/home/List.vue'
 
 const favorites = ref([])
 const router = useRouter()
 
-onMounted(async () => {
-  try {
-    const { data } = await axios.get(
-      'https://4c860bad2146c5b3.mokky.dev/favorites?_relations=items'
-    )
+const isAuth = inject('isAuth')
+const token = ref(inject('token'))
 
-    favorites.value = data.map((obj) => obj.item)
-  } catch (error) {
-    console.error(error)
+onMounted(async () => {
+  token.value = localStorage.getItem('token')
+  console.log(token.value)
+  if (isAuth.value) {
+    try {
+      const { data } = await axios.get('https://localhost:7228/api/Items/favorites', {
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      })
+
+      favorites.value = data.map((obj) => obj)
+    } catch (error) {
+      console.error(error)
+    }
   }
+  return
 })
 
 const goBack = () => {
   router.push('/')
 }
-
-const isAuth = inject('isAuth')
 
 const goToAuth = () => {
   router.push('/auth')

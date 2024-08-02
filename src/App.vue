@@ -1,12 +1,15 @@
 <script setup>
-import { provide, ref, watch, computed, onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted, provide, ref, watch } from 'vue'
 
-import Header from './components/home/Header.vue'
 import Drawer from './components/cart/Drawer.vue'
+import Header from './components/home/Header.vue'
 
 const isAuth = ref(false)
-
 provide('isAuth', isAuth)
+
+const token = ref(localStorage.getItem('token'))
+provide('token', token.value)
+console.log(token.value)
 
 onMounted(() => {})
 
