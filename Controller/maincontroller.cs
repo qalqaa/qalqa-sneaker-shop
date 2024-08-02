@@ -121,7 +121,7 @@ namespace qalqasneakershop.Controllers
         }
         [Authorize]
         [HttpPost("add-to-favorites")]
-        public async Task<ActionResult> AddToUserFavourites(int sneakerId)
+        public async Task<ActionResult> AddToUserFavourites([FromBody] int sneakerId)
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
             if (userIdClaim == null)
