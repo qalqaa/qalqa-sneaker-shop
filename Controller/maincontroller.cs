@@ -120,6 +120,46 @@ namespace qalqasneakershop.Controllers
             return Ok(sneakers);
         }
         [Authorize]
+        [HttpGet("favorites/{sneakerId}")]
+        public async Task<ActionResult<Item>> GetUserFavouriteById(int sneakerId)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            var userId = Guid.Parse(userIdClaim.Value);
+
+            var userFavourites = await _userContext.UsersFull
+                                                   .Where(u => u.UserID == userId)
+                                                   .Select(u => u.Favourites)
+                                                   .FirstOrDefaultAsync();
+            if (userFavourites == null)
+            {
+                return NotFound("Избранные пользователя не найдены");
+            }   
+            var sneakerIds = userFavourites
+                .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                .Select(id => int.Parse(id.Trim()))
+                .ToList();
+
+            if (!sneakerIds.Contains(sneakerId))
+            {
+                return NotFound("Товар с таким Id не найден в избранных пользователя");
+            }
+
+            var sneaker = await _context.Items
+                                        .FirstOrDefaultAsync(i => i.Id == sneakerId);
+            if (sneaker == null)
+            {
+                return NotFound("Товар с таким Id не найден в базе данных");
+            }
+
+            return Ok(sneaker);
+        }
+
+        [Authorize]
         [HttpPost("add-to-favorites")]
         public async Task<ActionResult> AddToUserFavourites([FromBody] int sneakerId)
         {
