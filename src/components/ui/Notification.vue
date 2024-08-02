@@ -1,21 +1,8 @@
 <script setup>
-import { ref } from 'vue'
-
-const props = defineProps({
+defineProps({
   state: String,
   message: String
 })
-
-const title = ref('title')
-
-switch (props.state) {
-  case 'done':
-    title.value = 'Успешно!'
-    break
-  case 'error':
-    title.value = 'Ошибка!'
-    break
-}
 </script>
 
 <template>
