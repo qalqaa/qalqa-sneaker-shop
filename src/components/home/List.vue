@@ -5,8 +5,6 @@ defineProps({
   items: Array,
   isFavorites: Boolean
 })
-
-const emit = defineEmits(['addToFavorite', 'addToCart'])
 </script>
 <template>
   <div class="grid min-[450px]:grid-col-1 sm:grid-cols-2 md:grid-cols-3 gap-5" v-auto-animate>
@@ -17,8 +15,6 @@ const emit = defineEmits(['addToFavorite', 'addToCart'])
       :title="item.title"
       :img-url="item.imageUrl"
       :price="item.price"
-      :onClickFavorite="isFavorites ? null : () => emit('addToFavorite', item)"
-      :onClickAdd="isFavorites ? null : () => emit('addToCart', item)"
       :isFavorite="item.isFavorite"
       :isAdded="item.isAdded"
     />
