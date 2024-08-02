@@ -39,6 +39,8 @@ const router = useRouter()
 
 const token = ref(inject('token'))
 
+const isAuth = inject('isAuth')
+
 const favoriteId = ref(null)
 const isFavorite = ref(store.state.data.favorite)
 const id = route.params.id
@@ -160,6 +162,7 @@ onUnmounted(() => {
             В корзину
           </button>
           <img
+            v-if="isAuth"
             @click="addToFavorite(item)"
             :src="isFavorite ? '/like-2.svg' : '/like-1.svg'"
             alt="likeButton"
