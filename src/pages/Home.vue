@@ -9,6 +9,8 @@ const { cart, addToCart, removeFromCart } = inject('cart')
 
 const items = ref([])
 const isEmpty = ref(false)
+const isAuth = inject('isAuth')
+const token = ref(inject('token'))
 
 const filters = reactive({
   sortOrder: 'title_desc',
@@ -60,25 +62,32 @@ const addToFavorite = async (item) => {
 }
 
 const fetchFavorites = async () => {
-  try {
-    const { data: favorites } = await axios.get(`https://4c860bad2146c5b3.mokky.dev/favorites`)
+  if (isAuth.value) {
+    try {
+      const { data: favorites } = await axios.get('https://localhost:7228/api/Items/favorites', {
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      })
 
-    items.value = items.value.map((item) => {
-      const favorite = favorites.find((favorite) => favorite.item_id === item.id)
+      items.value = items.value.map((item) => {
+        const favorite = favorites.find((favorite) => favorite.id === item.id)
 
-      if (!favorite) {
-        return item
-      }
+        if (!favorite) {
+          return item
+        }
 
-      return {
-        ...item,
-        isFavorite: true,
-        favoriteId: favorite.id
-      }
-    })
-  } catch (error) {
-    console.error(error)
+        return {
+          ...item,
+          isFavorite: true,
+          favoriteId: favorite.id
+        }
+      })
+    } catch (error) {
+      console.error(error)
+    }
   }
+  return
 }
 
 const fetchItems = async () => {
