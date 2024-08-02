@@ -9,7 +9,8 @@ namespace qalqasneakershop.Models
         public int Price { get; set; }
         public string ImageUrl { get; set; } = string.Empty;
         public ItemDescription Description { get; set; }
-        public ItemRating Rating { get; set; }
+        public ItemReviews Reviews { get; set; }
+        public bool Rating { get; set; }
     }
     public class ItemDescription
     {
@@ -22,7 +23,7 @@ namespace qalqasneakershop.Models
         public string Country { get; set; } = string.Empty;
         public string Article { get; set; } = string.Empty;
     }
-    public class ItemRating
+    public class ItemReviews
     {
         public int Estimation { get; set; }
         public int Id { get; set; }

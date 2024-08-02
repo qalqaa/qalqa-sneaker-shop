@@ -47,6 +47,7 @@ namespace qalqasneakershop.Controllers
                 item.Price,
                 item.ImageUrl,
                 item.Description,
+                item.Reviews,
                 item.Rating
             }).ToList();
             return Ok(result);
@@ -60,11 +61,11 @@ namespace qalqasneakershop.Controllers
                                              .ToListAsync();
             return Ok(descriptions);
         }
-        [HttpGet("rating")]
-        public async Task<ActionResult<List<ItemRating>>> GetRatingItems()
+        [HttpGet("reviews")]
+        public async Task<ActionResult<List<ItemReviews>>> GetRatingItems()
         {
             var ratings = await _context.Items
-                                        .Select(item => item.Rating)
+                                        .Select(item => item.Reviews)
                                         .ToListAsync();
             return Ok(ratings);
         }
