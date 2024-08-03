@@ -1,8 +1,13 @@
 <script setup>
-import { useRouter } from 'vue-router'
+import { useDoneHandler } from '@/components/errors/doneHandler'
+import { useErrorHandler } from '@/components/errors/errorHandler'
 import AuthRegHeader from '@/components/ui/AuthRegHeader.vue'
 import axios from 'axios'
-import { reactive, computed } from 'vue'
+import { computed, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+
+const { handleDone } = useDoneHandler()
+const { handleError } = useErrorHandler()
 
 const router = useRouter()
 
@@ -46,9 +51,10 @@ const register = async () => {
       password: user.password,
       userName: user.username
     })
-    console.log(response.data)
+    handleDone(response.data.message)
+    router.push('/auth')
   } catch (error) {
-    console.error('Error:', error)
+    handleError(error)
   }
 }
 

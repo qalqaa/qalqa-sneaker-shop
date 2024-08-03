@@ -57,7 +57,7 @@ const login = async () => {
     const token = response.data.token
     localStorage.setItem('token', token)
     isAuth.value = true
-    handleDone('Вы вошли в аккаунт!')
+    handleDone(response.data.message)
     router.push('/')
   } catch (error) {
     handleError(error)
