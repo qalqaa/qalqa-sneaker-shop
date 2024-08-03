@@ -2,7 +2,13 @@
 import { useRouter } from 'vue-router'
 
 import AuthRegHeader from '@/components/ui/AuthRegHeader.vue'
-import { reactive, computed, inject } from 'vue'
+import { computed, inject, reactive } from 'vue'
+
+import { useDoneHandler } from '@/components/errors/doneHandler'
+import { useErrorHandler } from '@/components/errors/errorHandler'
+
+const { handleDone } = useDoneHandler()
+const { handleError } = useErrorHandler()
 
 import api from '../interceptors/AuthIterseptor'
 
@@ -51,8 +57,10 @@ const login = async () => {
     const token = response.data.token
     localStorage.setItem('token', token)
     isAuth.value = true
+    handleDone('Вы вошли в аккаунт!')
     router.push('/')
   } catch (error) {
+    handleError(error)
     console.error('Error:', error)
   }
 }

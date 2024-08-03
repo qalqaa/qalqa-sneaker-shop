@@ -1,8 +1,11 @@
 <script setup>
+import { useErrorHandler } from '@/components/errors/errorHandler'
 import { computed, onMounted, onUnmounted, provide, ref, watch } from 'vue'
 
 import Drawer from './components/cart/Drawer.vue'
+import { useDoneHandler } from './components/errors/doneHandler'
 import Header from './components/home/Header.vue'
+import Notification from './components/ui/Notification.vue'
 
 const isAuth = ref(false)
 provide('isAuth', isAuth)
@@ -52,6 +55,9 @@ watch(
 
 provide('cart', { cart, closeCart, openCart, addToCart, removeFromCart })
 
+const { error } = useErrorHandler()
+
+const { done } = useDoneHandler()
 /*Корзина*/
 </script>
 
@@ -65,4 +71,9 @@ provide('cart', { cart, closeCart, openCart, addToCart, removeFromCart })
       <RouterView />
     </div>
   </div>
+  <Notification
+    v-if="done || error"
+    :state="done ? 'done' : 'error'"
+    :message="done ? done : error"
+  />
 </template>

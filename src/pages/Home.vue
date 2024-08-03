@@ -5,7 +5,7 @@ import { inject, onMounted, reactive, ref, watch } from 'vue'
 
 import List from '../components/home/List.vue'
 
-const { cart, addToCart, removeFromCart } = inject('cart')
+const { cart } = inject('cart')
 
 const items = ref([])
 const isEmpty = ref(false)
@@ -16,16 +16,6 @@ const filters = reactive({
   sortOrder: 'title_desc',
   searchString: ''
 })
-
-const onClickAddPlus = (item) => {
-  if (!item.isAdded) {
-    addToCart(item)
-  } else {
-    removeFromCart(item)
-  }
-
-  console.log(cart)
-}
 
 const onChangeSelect = (event) => {
   filters.sortOrder = event.target.value
@@ -140,7 +130,7 @@ watch(filters, fetchItems)
     </div>
   </div>
   <div v-if="!isEmpty">
-    <List :items="items" @add-to-favorite="addToFavorite" @add-to-cart="onClickAddPlus" />
+    <List :items="items" />
   </div>
   <div class="flex flex-col justify-center items-center" v-else>
     <img height="50" width="50" src="/emoji-1.png" alt="Sad emoji" />

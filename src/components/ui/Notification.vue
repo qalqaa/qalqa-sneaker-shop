@@ -1,12 +1,24 @@
 <script setup>
+import { onMounted, ref } from 'vue'
+
 defineProps({
   state: String,
   message: String
+})
+
+const isVisible = ref(true)
+const duration = 5000
+
+onMounted(() => {
+  setTimeout(() => {
+    isVisible.value = false
+  }, duration)
 })
 </script>
 
 <template>
   <div
+    v-if="isVisible"
     class="fixed z-10 right-5 bottom-5 flex flex-col p-5 rounded-xl"
     :class="state === 'error' ? 'error' : 'done'"
   >
