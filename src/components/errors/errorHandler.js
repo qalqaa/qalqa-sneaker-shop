@@ -3,37 +3,45 @@ import { inject, provide, ref } from 'vue'
 const ErrorHandlerSymbol = Symbol('ErrorHandler')
 
 export function useErrorHandlerProvider() {
-  const error = ref(null)
+  const error = ref()
 
   function handleError(err) {
+    let errorMessage = ''
+
     if (err.response) {
       switch (err.response.status) {
         case 400:
-          error.value = 'Ошибка 400: Неверный запрос'
+          errorMessage = 'Ошибка 400: Неверный запрос'
           break
         case 401:
-          error.value = 'Ошибка 401: Неавторизован'
+          errorMessage = 'Ошибка 401: Неавторизован'
           break
         case 404:
-          error.value = 'Ошибка 404: Не найдено'
+          errorMessage = 'Ошибка 404: Не найдено'
           break
         case 500:
-          error.value = 'Ошибка 500: Внутренняя ошибка сервера'
+          errorMessage = 'Ошибка 500: Внутренняя ошибка сервера'
           break
         default:
-          error.value = `Ошибка ${err.response.status}: ${err.response.data.message}`
+          errorMessage = `Ошибка ${err.response.status}: ${err.response.data.message}`
       }
     } else if (err.request) {
-      error.value = 'Ошибка: Сервер не ответил'
+      errorMessage = 'Ошибка: Сервер не ответил'
     } else {
-      error.value = `Ошибка: ${err.message}`
+      errorMessage = `Ошибка: ${err.message}`
     }
-    console.error(error.value)
+
+    error.value = errorMessage
+
+    setTimeout(() => {
+      error.value = null
+    }, 5000)
   }
 
   provide(ErrorHandlerSymbol, { error, handleError })
-
-  return { error, handleError }
+  if (!error.value) {
+    return { error, handleError }
+  }
 }
 
 export function useErrorHandler() {

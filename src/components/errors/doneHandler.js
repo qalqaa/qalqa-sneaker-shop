@@ -5,7 +5,11 @@ const DoneHandlerSymbol = Symbol('DoneHandler')
 export function useDoneHandlerProvider() {
   const done = ref(null)
   function handleDone(message) {
-    done.value = message
+    let doneMessage = message
+    done.value = doneMessage
+    setTimeout(() => {
+      done.value = null
+    }, 5000)
   }
   provide(DoneHandlerSymbol, { done, handleDone })
   return { done, handleDone }
