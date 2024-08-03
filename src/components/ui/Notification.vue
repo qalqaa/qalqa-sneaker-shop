@@ -6,33 +6,25 @@ defineProps({
 </script>
 
 <template>
-  <div class="bg flex flex-col p-5" :class="state === 'error' ? 'error' : 'done'">
+  <div
+    class="fixed z-10 right-5 bottom-5 flex flex-col p-5 rounded-xl"
+    :class="state === 'error' ? 'error' : 'done'"
+  >
     <div class="flex gap-2">
       <img
-        class="w-5 test"
+        class="w-5"
         :src="state === 'error' ? '../../../public/error.svg' : '../../../public/done.svg'"
         alt=""
       />
       <h3 class="text-xl font-bold">{{ state === 'error' ? 'Ошибка!' : 'Успешно!' }}</h3>
     </div>
     <p class="overflow-auto">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores, Lorem ipsum dolor sit amet
-      consdddddddddddddddddd
+      {{ message }}
     </p>
   </div>
 </template>
 
 <style scoped>
-.bg {
-  position: fixed;
-  z-index: 9999;
-  right: 20px;
-  bottom: 20px;
-  border-radius: 10px;
-  width: 500px;
-  height: 120px;
-}
-
 .error {
   color: #e46962;
   background: #e4696244;
