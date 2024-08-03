@@ -19,8 +19,8 @@ onMounted(() => {
 <template>
   <div
     v-if="isVisible"
-    class="fixed z-10 right-5 bottom-5 flex flex-col p-5 rounded-xl"
-    :class="state === 'error' ? 'error' : 'done'"
+    class="fixed z-10 right-5 bottom-5 flex flex-col p-5 rounded-xl transition opacity-100"
+    :class="[state === 'error' ? 'error' : 'done']"
   >
     <div class="flex gap-2">
       <img
@@ -45,5 +45,25 @@ onMounted(() => {
 .done {
   color: #1cdb63;
   background: #1cdb6244;
+}
+
+.transition {
+  opacity: 0;
+  animation: fadeInOut 5s forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 </style>
