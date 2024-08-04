@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using qalqasneakershop.Data;
+using qalqasneakershop.Models;
 using Microsoft.EntityFrameworkCore;
 using Azure.Core;
 using Autorisation.Interfaces;
@@ -122,7 +123,66 @@ namespace qalqasneakershop.Controllers
 
             return Ok("Пароль успешно изменен");
         }
+        [Authorize]
+        [HttpPost("createOrders")]
+        public async Task<ActionResult> CreateOrder([FromBody] Order request)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
 
+            var userId = Guid.Parse(userIdClaim.Value);
 
+            var user = await _userContext.UsersFull
+                                 .Where(u => u.UserID == userId)
+                                 .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return NotFound("Пользователь не найден");
+            }
+
+            if (string.IsNullOrWhiteSpace(request.SneakerID))
+            {
+                return BadRequest("Корзина пуста");
+            }
+
+            var order = new Order
+            {
+                UserID = userId,
+                SneakerID = request.SneakerID
+            };
+
+            _userContext.Orders.Add(order);
+            await _userContext.SaveChangesAsync();
+
+            return Ok("Заказ успешно создан");
+        }
+
+        [Authorize]
+        [HttpGet("getOrders")]
+        public async Task<ActionResult<List<Order>>> GetOrders()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            var userId = Guid.Parse(userIdClaim.Value);
+
+            var orders = await _userContext.Orders
+                                   .Where(o => o.UserID == userId)
+                                   .ToListAsync();
+
+            if (orders == null || !orders.Any())
+            {
+                return NotFound("Заказы для данного пользователя не найдены");
+            }
+
+            return Ok(orders);
+        }
     }
 }

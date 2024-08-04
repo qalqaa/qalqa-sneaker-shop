@@ -37,6 +37,7 @@ namespace qalqasneakershop.Data
         }
 
         public DbSet<UserEntity> UsersFull { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -47,6 +48,11 @@ namespace qalqasneakershop.Data
                 entity.ToTable("UsersFull");
                 entity.HasKey(e => e.UserID);
             });
+
+            modelBuilder.Entity<Order>()
+            .Property(o => o.OrderID)
+            .ValueGeneratedOnAdd();
         }
     }
+
 }
