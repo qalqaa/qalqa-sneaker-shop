@@ -31,7 +31,7 @@ namespace Autorisation.Services
         {
             if (await _usersRepository.EmailExists(email))
             {
-                throw new Exception("Данный пользователь уже существует");
+                throw new Exception("Р”Р°РЅРЅС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
             }
 
             var hashedPassword = _passwordHasher.Generate(password);
@@ -42,13 +42,13 @@ namespace Autorisation.Services
         public async Task<string> Login(string email, string password)
         {
             var user = await _usersRepository.GetByEmail(email)
-                       ?? throw new Exception("Пользователь не найден!");
+                       ?? throw new Exception("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ!");
 
             var result = _passwordHasher.Verify(password, user.Password);
 
             if (!result)
             {
-                throw new Exception("Ошибка входа");
+                throw new Exception("РќРµРІРµСЂРЅС‹Р№ Р°РґСЂРµСЃ СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚С‹ РёР»Рё РїР°СЂРѕР»СЊ");
             }
 
             var token = _jwtProvider.GenerateToken(user);
@@ -58,7 +58,7 @@ namespace Autorisation.Services
         public async Task<IEnumerable<Item>> GetFavouriteSneakers(Guid userId)
         {
             var user = await _usersRepository.GetById(userId)
-                       ?? throw new Exception("Пользователь не найден!");
+                       ?? throw new Exception("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ!");
 
             var favouriteIds = user.GetFavouritesAsArray();
             var sneakers = await _sneakersRepository.GetSneakersByIds(favouriteIds);

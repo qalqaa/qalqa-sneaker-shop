@@ -39,12 +39,6 @@ namespace Autorisation.Endpoints
             try
             {
                 var token = await usersService.Login(request.Email, request.Password);
-                context.Response.Cookies.Append("tasty-cookies", token, new CookieOptions
-                {
-                    HttpOnly = true, 
-                    SameSite = SameSiteMode.Strict, 
-                    Secure = true 
-                });
 
                 var response = new { Token = token };
                 return Results.Json(response);
