@@ -82,6 +82,46 @@ namespace qalqasneakershop.Controllers
 
             return Ok(item);
         }
+
+        [Authorize]
+        [HttpPost("AddReview/{sneakerId}")]
+        public async Task<IActionResult> AddReview(int sneakerId, [FromBody] ItemReviews request)
+        {
+            var userNameClaim = User.FindFirst(ClaimTypes.Name);
+            var userName = userNameClaim?.Value;
+
+            var item = await _context.Items
+                                       .Where(r => r.Id == sneakerId)
+                                       .FirstOrDefaultAsync();
+
+            if (item == null)
+            {
+                return NotFound("Р РµС†РµРїС‚ РЅРµ РЅР°Р№РґРµРЅ");
+            }
+
+            var review = new ItemReviews
+            {
+                Id = item.Reviews.Any() ? item.Reviews.Max(r => r.Id) + 1 : 1,
+                Reviewer = request.Reviewer,
+                Estimation = request.Estimation,
+                Text = request.Text
+            };
+
+            if (item.Reviews == null)
+            {
+                item.Reviews = new List<ItemReviews>();
+            }
+
+            item.Reviews.Add(review);
+
+            item.Rating = item.Reviews.Average(r => r.Estimation);
+
+            _context.Items.Update(item);
+            await _context.SaveChangesAsync();
+
+            return Ok("РћС‚Р·С‹РІ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅ");
+        }
+
         [Authorize]
         [HttpGet("favorites")]
         public async Task<ActionResult<List<Item>>> GetUserFavourites()
@@ -101,12 +141,12 @@ namespace qalqasneakershop.Controllers
 
             if (userFavourites == null)
             {
-                return NotFound("Избранные пользователя не найдены");
+                return NotFound("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             }
 
             var sneakerIds = userFavourites
                 .Split(',', StringSplitOptions.RemoveEmptyEntries)
-                .Select(id => int.Parse(id.Trim())) 
+                .Select(id => int.Parse(id.Trim()))
                 .ToList();
 
             var sneakers = await _context.Items
@@ -115,7 +155,7 @@ namespace qalqasneakershop.Controllers
 
             if (sneakers == null || !sneakers.Any())
             {
-                return NotFound("Не найдены кроссовки с таким Id");
+                return NotFound("пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ Id");
             }
 
             return Ok(sneakers);
@@ -138,8 +178,8 @@ namespace qalqasneakershop.Controllers
                                                    .FirstOrDefaultAsync();
             if (userFavourites == null)
             {
-                return NotFound("Избранные пользователя не найдены");
-            }   
+                return NotFound("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
+            }
             var sneakerIds = userFavourites
                 .Split(',', StringSplitOptions.RemoveEmptyEntries)
                 .Select(id => int.Parse(id.Trim()))
@@ -147,14 +187,14 @@ namespace qalqasneakershop.Controllers
 
             if (!sneakerIds.Contains(sneakerId))
             {
-                return NotFound("Товар с таким Id не найден в избранных пользователя");
+                return NotFound("пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ Id пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             }
 
             var sneaker = await _context.Items
                                         .FirstOrDefaultAsync(i => i.Id == sneakerId);
             if (sneaker == null)
             {
-                return NotFound("Товар с таким Id не найден в базе данных");
+                return NotFound("пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ Id пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ");
             }
 
             return Ok(sneaker);
@@ -178,7 +218,7 @@ namespace qalqasneakershop.Controllers
 
             if (user == null)
             {
-                return NotFound("Пользователь не найден");
+                return NotFound("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ");
             }
 
             var userFavourites = user.Favourites ?? string.Empty;
@@ -192,11 +232,11 @@ namespace qalqasneakershop.Controllers
                 favouriteIds.Add(sneakerId);
                 user.Favourites = string.Join(",", favouriteIds);
                 await _userContext.SaveChangesAsync();
-                return Ok("Товар добавлен в избранные");
+                return Ok("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             }
             else
             {
-                return BadRequest("Товар уже находится в избранных");
+                return BadRequest("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             }
         }
         [Authorize]
@@ -217,7 +257,7 @@ namespace qalqasneakershop.Controllers
 
             if (user == null)
             {
-                return NotFound("Пользователь не найден");
+                return NotFound("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ");
             }
 
             var userFavourites = user.Favourites ?? string.Empty;
@@ -231,11 +271,11 @@ namespace qalqasneakershop.Controllers
                 favouriteIds.Remove(sneakerId);
                 user.Favourites = string.Join(",", favouriteIds);
                 await _userContext.SaveChangesAsync();
-                return Ok("Товар удален из избранных");
+                return Ok("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             }
             else
             {
-                return NotFound("Товар не найден в избранных");
+                return NotFound("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             }
         }
 
