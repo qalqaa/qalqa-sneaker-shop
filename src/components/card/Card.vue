@@ -1,5 +1,5 @@
 <script setup>
-import { inject } from 'vue'
+import { inject, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
@@ -10,6 +10,17 @@ const props = defineProps({
   price: Number,
   isFavorite: Boolean,
   isAdded: Boolean
+})
+
+const image = ref()
+
+async function binaryImgFetch(url) {
+  const image = URL.createObjectURL(await url.blob())
+  image.value = image
+}
+
+onMounted(() => {
+  binaryImgFetch(this.imgUrl)
 })
 
 const router = useRouter()
@@ -34,7 +45,7 @@ const goToDetails = () => {
       alt="likeButton"
       class="absolute cursor-pointer z-10 top-8 left-8"
     />
-    <img class="transition card-lightning" :src="imgUrl" alt="Sneaker" />
+    <img class="transition card-lightning" :src="image" alt="Sneaker" />
     <p class="mb-5">{{ title }}</p>
     <div class="flex justify-between">
       <div class="flex flex-col">
