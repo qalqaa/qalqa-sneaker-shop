@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   backendtesting:
     build:
@@ -10,3 +12,25 @@ services:
     container_name: backend_test_api
     volumes:
       - ~/.aspnet/dev-certs/https/aspnetcore-localhost-91A24B6B9563B9FAEE9664F69394D37D55C88E45.pfx:/app/aspnetcore-localhost.pfx:ro
+#     environment:
+#       - ASPNETCORE_ENVIRONMENT=Development
+#       - ConnectionStrings__DefaultConnection=Server=mssql_db;Database=mydatabase;User Id=sa;Password=yourStrong@Passw0rd;
+#       - ASPNETCORE_HTTPS_PORTS=8081
+#       - ASPNETCORE_HTTP_PORTS=8080
+#     depends_on:
+#       - mssql_db
+
+#   mssql_db:
+#     image: mcr.microsoft.com/mssql/server:2022-latest
+#     container_name: mssql_db
+#     restart: always
+#     environment:
+#       - ACCEPT_EULA=Y
+#       - SA_PASSWORD=A123123a
+#     ports:
+#       - "1433:1433"
+#     volumes:
+#       - mssql_data:/var/opt/mssql
+
+# volumes:
+#   mssql_data:
