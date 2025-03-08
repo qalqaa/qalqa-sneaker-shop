@@ -66,7 +66,7 @@ builder.Services.AddCors(options =>
                       {
                           policy.WithOrigins("http://localhost:5173",
                                               "https://localhost:5173",
-                                              "https://localhost:7228/favourites")
+                                              "https://localhost:8081/favourites")
                                 .AllowAnyMethod()
                                 .AllowAnyHeader()
                                 .AllowCredentials();
@@ -121,7 +121,9 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var dbContext = services.GetRequiredService<ApplicationDbContext>();
-        dbContext.Database.Migrate(); // Применение миграций
+        var userDbContext = services.GetRequiredService<ApplicationUserDbContext>();
+        dbContext.Database.Migrate();
+        userDbContext.Database.Migrate();
     }
     catch (Exception ex)
     {
