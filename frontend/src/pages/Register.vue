@@ -46,7 +46,7 @@ const register = async () => {
   validateField('password')
 
   try {
-    const response = await axios.post('https://localhost:7228/register', {
+    const response = await axios.post('https://localhost:8081/register', {
       email: user.email,
       password: user.password,
       userName: user.username

@@ -14,7 +14,7 @@ services:
       - ~/.aspnet/dev-certs/https/aspnetcore-localhost-91A24B6B9563B9FAEE9664F69394D37D55C88E45.pfx:/app/aspnetcore-localhost.pfx:ro
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=mssql_db;Database=mydatabase;User Id=sa;Password=yourStrong@Passw0rd;
+      - ConnectionStrings__DefaultConnection=Server=mssql_db;Database=ItemsSql;User Id=sa;Password=A123123a;TrustServerCertificate=True;
       - ASPNETCORE_HTTPS_PORTS=8081
       - ASPNETCORE_HTTP_PORTS=8080
     depends_on:
