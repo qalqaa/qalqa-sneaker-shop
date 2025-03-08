@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  backendtesting:
+    build:
+      context: .
+      dockerfile: BackendTesting/Dockerfile
+    volumes:
+      - ${USERPROFILE}/.aspnet/dev-certs/https:/https:ro
+    ports:
+      - "8080:8080"
+    container_name: backend_test_api
+
+    environment:
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=123
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=mssql_db;Database=ItemsSql;User Id=sa;Password=A123123a;TrustServerCertificate=True;
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ASPNETCORE_HTTP_PORTS=8080
+    depends_on:
+      - mssql_db
+    entrypoint: ["sh", "-c", "sleep 15; dotnet BackendTesting.dll;"]
+
+  mssql_db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql_db
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=A123123a
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "1433"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
+volumes:
+  mssql_data:

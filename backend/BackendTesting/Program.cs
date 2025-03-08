@@ -106,12 +106,29 @@ builder.WebHost.ConfigureKestrel(options =>
     {
         httpsOptions.SslProtocols = System.Security.Authentication.SslProtocols.Tls12;
 
+
         // You can set up a certificate if needed for production, for example:
         // httpsOptions.ServerCertificate = new X509Certificate2("path/to/certificate.pfx", "password");
     });
 });
 
 var app = builder.Build();
+
+// Автоматическое применение миграций
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var dbContext = services.GetRequiredService<ApplicationDbContext>();
+        dbContext.Database.Migrate(); // Применение миграций
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Произошла ошибка при применении миграций.");
+    }
+}
 
 if (app.Environment.IsDevelopment())
 {
