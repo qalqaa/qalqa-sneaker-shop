@@ -5,13 +5,17 @@ services:
     build:
       context: .
       dockerfile: BackendTesting/Dockerfile
-    volumes:
-      - ${USERPROFILE}/.aspnet/dev-certs/https:/https:ro
+      args:
+        CERT_PATH: /app/aspnetcore.pfx
     ports:
       - "8080:8080"
+      - "8081:8081"
     container_name: backend_test_api
-
+    volumes:
+      - ${USERPROFILE}/.aspnet/dev-certs/https:/https:ro
     environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DOTNET_URLS=https://+:8081;http://+:8080
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
       - ASPNETCORE_ENVIRONMENT=Development
