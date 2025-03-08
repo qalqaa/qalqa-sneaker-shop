@@ -12,7 +12,7 @@ using qalqasneakershop.Data;
 namespace BackendTesting.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250308165900_1")]
+    [Migration("20250308223540_1")]
     partial class _1
     {
         /// <inheritdoc />
@@ -238,9 +238,9 @@ namespace BackendTesting.Migrations.ApplicationDb
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("ImageUrl")
+                    b.Property<string>("ImageUrl")
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
