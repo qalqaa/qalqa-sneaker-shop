@@ -1,0 +1,12 @@
+services:
+  backendtesting:
+    build:
+      context: .
+      dockerfile: BackendTesting/Dockerfile
+      args:
+        CERT_PATH: /app/aspnetcore-localhost.pfx
+    ports:
+      - "8080:8080"
+    container_name: backend_test_api
+    volumes:
+      - ~/.aspnet/dev-certs/https/aspnetcore-localhost-91A24B6B9563B9FAEE9664F69394D37D55C88E45.pfx:/app/aspnetcore-localhost.pfx:ro
