@@ -24,35 +24,41 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Logging.AddConsole();
 
+// Setup DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// JWT Authentication
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-            .AddJwtBearer(options =>
-            {
-                options.SaveToken = true;
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey =
-                        new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtOptions:SecretKey"]!))
-                };
-            });
-builder.Services.AddAuthorization(optioins => optioins.DefaultPolicy =
-            new AuthorizationPolicyBuilder(
-                JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser().Build());
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey =
+            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtOptions:SecretKey"]!))
+    };
+});
 
+// Authorization Policy
+builder.Services.AddAuthorization(options => options.DefaultPolicy =
+    new AuthorizationPolicyBuilder(
+        JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser().Build());
+
+// Identity
 builder.Services.AddIdentity<ApplicationIdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
+// CORS Policy
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
@@ -67,16 +73,19 @@ builder.Services.AddCors(options =>
                       });
 });
 
+// Configure JWT options
 builder.Services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
 
+// DbContext for ApplicationUser
 builder.Services.AddDbContext<ApplicationUserDbContext>(options =>
     options.UseSqlServer(connectionString));
-builder.Services.AddControllersWithViews();
 
+builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddRazorPages();
 builder.Services.AddSwaggerGen();
 
+// Scoped services
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<ISneakersRepository, SneakersRepository>();
 builder.Services.AddScoped<UsersService>();
@@ -84,10 +93,23 @@ builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
+// AutoMapper
 builder.Services.AddAutoMapper(typeof(DataBaseMappings));
 
-
 builder.Services.AddControllers();
+
+// Configure Kestrel to use HTTPS
+builder.WebHost.ConfigureKestrel(options =>
+{
+    // Configure Kestrel to listen for HTTPS (with self-signed certs in development)
+    options.ConfigureHttpsDefaults(httpsOptions =>
+    {
+        httpsOptions.SslProtocols = System.Security.Authentication.SslProtocols.Tls12;
+
+        // You can set up a certificate if needed for production, for example:
+        // httpsOptions.ServerCertificate = new X509Certificate2("path/to/certificate.pfx", "password");
+    });
+});
 
 var app = builder.Build();
 
@@ -96,7 +118,7 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); // Ensure HTTP requests are redirected to HTTPS
 app.UseStaticFiles();
 
 app.UseRouting();
