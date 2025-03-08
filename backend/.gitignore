@@ -1,0 +1,73 @@
+# .NET Core / .NET 5+ build results
+/bin/
+/obj/
+
+/# User-specific files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userprefs
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer logs
+*.log
+
+# JetBrains Rider
+.idea/
+
+# User-specific files from Visual Studio for Mac
+.vscode/
+
+# ASP.NET temporary files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# .NET Core local tool
+.dotnet-tools/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# File created by Visual Studio for Mac
+.vscode/
+
+# Tye
+.tye/
+
+# NPM / Node.js files
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Microsoft Azure Web Apps
+Publish/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer logs
+*.log
+
+# Files created by Visual Studio for Mac
+.vscode/
+
+# Rider (JetBrains)
+.idea/
