@@ -1,0 +1,626 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A4C9F52-7DC4-4AAE-BCEE-BC0250CFEED7}|docker-compose.dcproj|c:\\users\\artyo\\source\\repos\\backendtesting\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6A4C9F52-7DC4-4AAE-BCEE-BC0250CFEED7}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\controller\\itemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\controller\\itemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\controller\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\controller\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\autorisation\\endpoints\\usersendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\autorisation\\endpoints\\usersendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\autorisation\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\autorisation\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\data\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\data\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\autorisation\\databasemapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\autorisation\\databasemapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\autorisation\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\autorisation\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\autorisation\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\autorisation\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\autorisation\\interfaces\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\autorisation\\interfaces\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\autorisation\\interfaces\\isneakersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\autorisation\\interfaces\\isneakersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\autorisation\\interfaces\\ijwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\autorisation\\interfaces\\ijwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\autorisation\\jwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\autorisation\\jwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\autorisation\\jwtoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\autorisation\\jwtoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\data\\identity\\applicationidentityitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\data\\identity\\applicationidentityitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\pages\\error.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\pages\\error.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\pages\\privacy.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\pages\\privacy.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\repositories\\itemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\repositories\\itemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A4C9F52-7DC4-4AAE-BCEE-BC0250CFEED7}|docker-compose.dcproj|c:\\users\\artyo\\source\\repos\\backendtesting\\docker-compose.dcproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6A4C9F52-7DC4-4AAE-BCEE-BC0250CFEED7}|docker-compose.dcproj|solutionrelative:docker-compose.dcproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\backendtesting.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\backendtesting.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|c:\\users\\artyo\\source\\repos\\backendtesting\\backendtesting\\interfaces\\iitemreposytory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5990EAD5-41BE-4104-BEEA-1A95252B7519}|BackendTesting\\BackendTesting.csproj|solutionrelative:backendtesting\\interfaces\\iitemreposytory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.Orders.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.UsersFull.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/True/SqlTable/dbo.UsersFull.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.Items.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\Data\\ApplicationDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\Data\\UserEntity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Program.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Program.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Program.cs",
+              "RelativeToolTip": "BackendTesting\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T08:19:25.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserEntity.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Data\\UserEntity.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Data\\UserEntity.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Data\\UserEntity.cs",
+              "RelativeToolTip": "BackendTesting\\Data\\UserEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T16:24:39.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "JwtProvider.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\JwtProvider.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Autorisation\\JwtProvider.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\JwtProvider.cs",
+              "RelativeToolTip": "BackendTesting\\Autorisation\\JwtProvider.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T07:35:26.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "itemsController.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Controller\\itemsController.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Controller\\itemsController.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Controller\\itemsController.cs",
+              "RelativeToolTip": "BackendTesting\\Controller\\itemsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T10:28:50.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\appsettings.json",
+              "RelativeDocumentMoniker": "BackendTesting\\appsettings.json",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\appsettings.json",
+              "RelativeToolTip": "BackendTesting\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-10T08:20:48.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ISneakersRepository.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Interfaces\\ISneakersRepository.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Autorisation\\Interfaces\\ISneakersRepository.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Interfaces\\ISneakersRepository.cs",
+              "RelativeToolTip": "BackendTesting\\Autorisation\\Interfaces\\ISneakersRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T08:43:16.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Dockerfile",
+              "RelativeDocumentMoniker": "BackendTesting\\Dockerfile",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Dockerfile",
+              "RelativeToolTip": "BackendTesting\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-24T09:59:01.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\docker-compose.yml",
+              "RelativeToolTip": "docker-compose.yml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-02-11T20:25:21.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "BackendTesting\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Properties\\launchSettings.json",
+              "RelativeToolTip": "BackendTesting\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-11T20:53:10.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UsersRepository.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Repositories\\UsersRepository.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Autorisation\\Repositories\\UsersRepository.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Repositories\\UsersRepository.cs",
+              "RelativeToolTip": "BackendTesting\\Autorisation\\Repositories\\UsersRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T09:42:56.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "usersController.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Controller\\usersController.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Controller\\usersController.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Controller\\usersController.cs",
+              "RelativeToolTip": "BackendTesting\\Controller\\usersController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA6wA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T16:17:15.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Models\\User.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Autorisation\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Models\\User.cs",
+              "RelativeToolTip": "BackendTesting\\Autorisation\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T08:48:10.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UsersEndpoints.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Endpoints\\UsersEndpoints.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Autorisation\\Endpoints\\UsersEndpoints.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Endpoints\\UsersEndpoints.cs",
+              "RelativeToolTip": "BackendTesting\\Autorisation\\Endpoints\\UsersEndpoints.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAvwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T08:44:05.92Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IUsersRepository.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Interfaces\\IUsersRepository.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Autorisation\\Interfaces\\IUsersRepository.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Interfaces\\IUsersRepository.cs",
+              "RelativeToolTip": "BackendTesting\\Autorisation\\Interfaces\\IUsersRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T18:39:53.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DataBaseMapping.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\DataBaseMapping.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Autorisation\\DataBaseMapping.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\DataBaseMapping.cs",
+              "RelativeToolTip": "BackendTesting\\Autorisation\\DataBaseMapping.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T08:24:21.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UsersService.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Services\\UsersService.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Autorisation\\Services\\UsersService.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Services\\UsersService.cs",
+              "RelativeToolTip": "BackendTesting\\Autorisation\\Services\\UsersService.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowDAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T08:04:38.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IJwtProvider.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Interfaces\\IJwtProvider.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Autorisation\\Interfaces\\IJwtProvider.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\Interfaces\\IJwtProvider.cs",
+              "RelativeToolTip": "BackendTesting\\Autorisation\\Interfaces\\IJwtProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T18:38:36.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "JwtOptions.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\JwtOptions.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Autorisation\\JwtOptions.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Autorisation\\JwtOptions.cs",
+              "RelativeToolTip": "BackendTesting\\Autorisation\\JwtOptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T07:36:36.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "BackendTesting\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T08:36:00.762Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ApplicationIdentityItem.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Data\\Identity\\ApplicationIdentityItem.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Data\\Identity\\ApplicationIdentityItem.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Data\\Identity\\ApplicationIdentityItem.cs",
+              "RelativeToolTip": "BackendTesting\\Data\\Identity\\ApplicationIdentityItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T10:28:25.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "item.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Models\\item.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Models\\item.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Models\\item.cs",
+              "RelativeToolTip": "BackendTesting\\Models\\item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T08:21:46.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Models\\Order.cs",
+              "RelativeToolTip": "BackendTesting\\Models\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T19:07:43.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Pages\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "BackendTesting\\Pages\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Pages\\_ViewImports.cshtml",
+              "RelativeToolTip": "BackendTesting\\Pages\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-11T20:56:59.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ItemRepository.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Repositories\\ItemRepository.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Repositories\\ItemRepository.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Repositories\\ItemRepository.cs",
+              "RelativeToolTip": "BackendTesting\\Repositories\\ItemRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-14T18:19:40.948Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BackendTesting\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BackendTesting\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-11T21:02:25.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Pages\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "BackendTesting\\Pages\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T20:58:53.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Error.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Pages\\Error.cshtml.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Pages\\Error.cshtml.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Pages\\Error.cshtml.cs",
+              "RelativeToolTip": "BackendTesting\\Pages\\Error.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T20:58:44.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Privacy.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Pages\\Privacy.cshtml.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Pages\\Privacy.cshtml.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Pages\\Privacy.cshtml.cs",
+              "RelativeToolTip": "BackendTesting\\Pages\\Privacy.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T20:58:57.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "docker-compose.dcproj",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\docker-compose.dcproj",
+              "RelativeDocumentMoniker": "docker-compose.dcproj",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\docker-compose.dcproj",
+              "RelativeToolTip": "docker-compose.dcproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-02-11T20:25:20.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "BackendTesting.csproj",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\BackendTesting.csproj",
+              "RelativeDocumentMoniker": "BackendTesting\\BackendTesting.csproj",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\BackendTesting.csproj",
+              "RelativeToolTip": "BackendTesting\\BackendTesting.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-10T08:21:27.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "BackendTesting\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T08:31:32.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IItemReposytory.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Interfaces\\IItemReposytory.cs",
+              "RelativeDocumentMoniker": "BackendTesting\\Interfaces\\IItemReposytory.cs",
+              "ToolTip": "C:\\Users\\artyo\\source\\repos\\BackendTesting\\BackendTesting\\Interfaces\\IItemReposytory.cs",
+              "RelativeToolTip": "BackendTesting\\Interfaces\\IItemReposytory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-14T18:18:48.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "dbo.Orders.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.Orders.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.Orders.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-08-04T20:05:39.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "dbo.UsersFull.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.UsersFull.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.UsersFull.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-07-21T07:02:14.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "dbo.Users.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.Users.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.Users.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-08-01T05:37:17.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "dbo.UsersFull.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/True/SqlTable/dbo.UsersFull.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/True/SqlTable/dbo.UsersFull.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-07-21T07:26:46.325Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\OniMinetods\\source\\projects\\backendDevShop\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\OniMinetods\\source\\projects\\backendDevShop\\Data\\ApplicationDbContext.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T08:23:33.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "UserEntity.cs",
+              "DocumentMoniker": "C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\Data\\UserEntity.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\OniMinetods\\source\\projects\\backendDevShop\\Data\\UserEntity.cs",
+              "ToolTip": "C:\\Users\\OniMinetods\\source\\projects\\backendDevShop\\Data\\UserEntity.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\OniMinetods\\source\\projects\\backendDevShop\\Data\\UserEntity.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T08:23:33.92Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "dbo.Items.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.Items.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/ONIMINETODS_SQLEXPRESS/ItemsSql/sa/SqlTable/dbo.Items.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-07-10T10:20:41.215Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

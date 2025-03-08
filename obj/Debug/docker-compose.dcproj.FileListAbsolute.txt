@@ -1,0 +1,2 @@
+C:\Users\artyo\source\repos\BackendTesting\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\artyo\source\frontend\backendDevShop\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

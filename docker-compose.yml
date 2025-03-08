@@ -1,0 +1,8 @@
+services:
+  backendtesting:
+    build:
+      context: .
+      dockerfile: BackendTesting/Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: backend_test_api
