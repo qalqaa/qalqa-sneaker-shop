@@ -143,7 +143,11 @@ onUnmounted(() => {
         @mouseenter="handleMouseEnter"
         @mouseleave="handleMouseLeave"
       >
-        <img class="z-10 transition card-lightning" :src="item.imageUrl" alt="Sneaker" />
+        <img
+          class="z-10 transition card-lightning"
+          :src="'/sneakers/' + item.imageUrl + '.png'"
+          alt="Sneaker"
+        />
         <div class="glow" :style="glowStyle"></div>
       </div>
       <div class="lg:w-1/3 w-full p-5">
