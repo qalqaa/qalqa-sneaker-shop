@@ -46,7 +46,7 @@ const isFavorite = ref(store.state.data.favorite)
 const id = route.params.id
 
 const getData = async () => {
-  const { data } = await axios.get(`https://localhost:8081/api/Items/${id}`)
+  const { data } = await axios.get(`https://qalqa.tw1.ru/api/Items/${id}`)
   item.value = data
 }
 
@@ -54,7 +54,7 @@ const addToFavorite = async () => {
   try {
     if (!isFavorite.value) {
       isFavorite.value = true
-      await axios.post(`https://localhost:8081/api/Items/add-to-favorites`, id, {
+      await axios.post(`https://qalqa.tw1.ru/api/Items/add-to-favorites`, id, {
         headers: {
           Authorization: `Bearer ${token.value}`,
           'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ const addToFavorite = async () => {
     }
     if (isFavorite.value) {
       isFavorite.value = false
-      await axios.delete(`https://localhost:8081/api/Items/remove-from-favorites/${id}`, {
+      await axios.delete(`https://qalqa.tw1.ru/api/Items/remove-from-favorites/${id}`, {
         headers: {
           Authorization: `Bearer ${token.value}`
         }

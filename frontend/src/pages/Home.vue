@@ -28,7 +28,7 @@ const onChangeSearchInput = debounce((event) => {
 const fetchFavorites = async () => {
   if (isAuth.value) {
     try {
-      const { data: favorites } = await axios.get('https://localhost:8081/api/Items/favorites', {
+      const { data: favorites } = await axios.get('https://qalqa.tw1.ru/api/Items/favorites', {
         headers: {
           Authorization: `Bearer ${token.value}`
         }
@@ -64,7 +64,7 @@ const fetchItems = async () => {
       params.searchString = `${filters.searchString}`
     }
 
-    const { data } = await axios.get(`https://localhost:8081/api/items/sorted`, { params })
+    const { data } = await axios.get(`https://qalqa.tw1.ru/api/items/sorted`, { params })
 
     if (data.length === 0) {
       isEmpty.value = true

@@ -20,7 +20,7 @@ onMounted(async () => {
   console.log(token.value)
   if (isAuth.value) {
     try {
-      const { data } = await axios.get('https://localhost:8081/api/Items/favorites', {
+      const { data } = await axios.get('https://qalqa.tw1.ru/api/Items/favorites', {
         headers: {
           Authorization: `Bearer ${token.value}`
         }
