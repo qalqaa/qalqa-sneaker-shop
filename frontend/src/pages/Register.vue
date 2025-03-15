@@ -46,7 +46,7 @@ const register = async () => {
   validateField('password')
 
   try {
-    const response = await axios.post('https://qalqa.tw1.ru/register', {
+    const response = await axios.post('https://qalqa.tw1.ru/api/register', {
       email: user.email,
       password: user.password,
       userName: user.username

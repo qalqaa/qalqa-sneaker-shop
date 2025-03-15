@@ -11,8 +11,8 @@ namespace Autorisation.Endpoints
     {
         public static IEndpointRouteBuilder MapUsersEndpoints(this IEndpointRouteBuilder app)
         {
-            app.MapPost("register", Register);
-            app.MapPost("login", Login);
+            app.MapPost("api/register", Register);
+            app.MapPost("api/login", Login);
             return app;
         }
 
@@ -23,7 +23,7 @@ namespace Autorisation.Endpoints
             try
             {
                 await usersService.Register(request.UserName, request.Email, request.Password);
-                return Results.Ok(new { Message = "Регистрация успешно выполнена!" });
+                return Results.Ok(new { Message = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!" });
             }
             catch (Exception ex)
             {

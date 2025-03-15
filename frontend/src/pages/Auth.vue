@@ -50,7 +50,7 @@ const login = async () => {
     return
   }
   try {
-    const response = await api.post('/login', {
+    const response = await api.post('/api/login', {
       email: user.email,
       password: user.password
     })
