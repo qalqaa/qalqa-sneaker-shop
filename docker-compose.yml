@@ -28,7 +28,7 @@ services:
     ports:
       - "1433:1433"
     volumes:
-      - ./mssql_data:/opt/mssql
+      - ./mssql_data:/var/opt/mssql
     healthcheck:
       test: ["CMD", "nc", "-z", "localhost", "1433"]
       interval: 10s
