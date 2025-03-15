@@ -1,0 +1,21 @@
+version: "3.1"
+
+services:
+  nginx_verify_certbot:
+    container_name: nginx_verify_certbot
+    image: nginx:1.27.4-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx_certbot.conf:/etc/nginx/nginx.conf
+      - ./certbot/www/:/var/www/certbot/
+  certbot:
+    image: certbot/certbot:latest
+    container_name: certbot
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    entrypoint: >
+      sh -c "certbot certonly --webroot -w /var/www/certbot --email andreybas04@gmail.com -d <INSERT_DOMAIN> --agree-tos --no-eff-email --keep-until-expiring"
+    depends_on:
+      - nginx_verify_certbot

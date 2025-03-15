@@ -66,7 +66,8 @@ builder.Services.AddCors(options =>
                       {
                           policy.WithOrigins("http://localhost:5173",
                                               "https://localhost:5173",
-                                              "https://localhost:8081/favourites")
+                                              "https://localhost:8081/favourites",
+                                              "https://qalqa.tw1.ru")
                                 .AllowAnyMethod()
                                 .AllowAnyHeader()
                                 .AllowCredentials();

@@ -1,0 +1,25 @@
+FROM node:22-alpine3.20 AS frontend-build
+
+WORKDIR /usr/src/app
+
+RUN mkdir ./frontend_source
+
+WORKDIR /usr/src/app/frontend_source
+
+COPY ./frontend/package.json .
+RUN npm install -g yarn --force
+RUN yarn
+
+COPY ./frontend .
+
+RUN yarn build
+
+FROM nginx:1.27.4-alpine
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
+COPY --from=frontend-build /usr/src/app/frontend_source/dist/. ./static
+
+EXPOSE 80 443
+
+CMD ["nginx", "-g", "daemon off;"]
