@@ -9,7 +9,6 @@ defineProps({
 })
 </script>
 
-
 <template>
   <div class="flex items-center bg-color-soft inner-shadow rounded-xl p-4 gap-4">
     <img class="w-20 h-15" :src="imageUrl" :alt="title" />
@@ -22,7 +21,7 @@ defineProps({
         <img
           @click="emit('onClickRemove')"
           class="opacity-30 cursor-pointer transition hover:opacity-100"
-          src="/close.svg"
+          src="/src/assets/imgs/close.svg"
           alt="close"
         />
       </div>

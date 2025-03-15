@@ -25,7 +25,7 @@ onMounted(() => {
     <div class="flex gap-2">
       <img
         class="w-5"
-        :src="state === 'error' ? '../../../public/error.svg' : '../../../public/done.svg'"
+        :src="state === 'error' ? '../src/assets/imgs/error.svg' : '../src/assets/imgs/done.svg'"
         alt=""
       />
       <h3 class="text-xl font-bold">{{ state === 'error' ? 'Ошибка!' : 'Успешно!' }}</h3>

@@ -56,7 +56,7 @@ const goToAuth = () => {
     </div>
     <div v-else>
       <infoBlock
-        imgUrl="../../emoji-1.png"
+        imgUrl="/src/assets/imgs/emoji-1.png"
         title="Тут пока ничего нету"
         descr="Добавьте хотя бы одну пару кроссовок"
       />

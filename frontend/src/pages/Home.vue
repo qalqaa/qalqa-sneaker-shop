@@ -119,7 +119,7 @@ watch(filters, fetchItems)
         <option value="price_desc">По цене (убыванию)</option>
       </select>
       <div class="w-1/2 relative">
-        <img class="absolute top-3 left-4" src="/search.svg" alt="search" />
+        <img class="absolute top-3 left-4" src="/src/assets/imgs/search.svg" alt="search" />
         <input
           @input="onChangeSearchInput"
           class="p-2 bg-color-soft inner-shadow pl-11 pr-4 transition outline-none rounded-md w-full"
@@ -133,7 +133,7 @@ watch(filters, fetchItems)
     <List :items="items" />
   </div>
   <div class="flex flex-col justify-center items-center" v-else>
-    <img height="50" width="50" src="/emoji-1.png" alt="Sad emoji" />
+    <img height="50" width="50" src="/src/assets/imgs/emoji-1.png" alt="Sad emoji" />
     <p class="text-xl mt-3">По вашему запросу ничего не найдено</p>
   </div>
 </template>

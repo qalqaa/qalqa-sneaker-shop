@@ -10,7 +10,7 @@ defineProps({
   <header class="flex justify-between border-b border-zinc-500 px-4 sm:px-8 py-3">
     <router-link to="/"
       ><div class="flex items-center">
-        <img src="/logo.png" alt="Logo" class="w-10 mr-4" />
+        <img src="/src/assets/imgs/logo.png" alt="Logo" class="w-10 mr-4" />
         <div>
           <h1 class="c-accent font-bold accent-shadow-text text-2xl">q{\}qa Sneakers</h1>
           <p class="md:block hidden">Магазин лучших кросовок</p>
@@ -23,18 +23,18 @@ defineProps({
         @click="() => emit('openCart')"
         class="flex items-center gap-3 cursor-pointer hover-accent"
       >
-        <img src="/cart.svg" alt="Cart" />
+        <img src="/src/assets/imgs/cart.svg" alt="Cart" />
         <b class="md:block hidden">{{ totalPrice }} ₽</b>
       </li>
       <router-link to="/favorites">
         <li class="flex items-center gap-3 cursor-pointer hover-accent">
-          <img src=" /heart.svg" alt="Cart" />
+          <img src=" /src/assets/imgs/heart.svg" alt="Cart" />
           <span class="md:block hidden">Избранное</span>
         </li>
       </router-link>
       <router-link to="/profile">
         <li class="flex items-center gap-3 cursor-pointer hover-accent">
-          <img src=" /profile.svg" alt="Cart" />
+          <img src=" /src/assets/imgs/profile.svg" alt="Cart" />
           <span class="md:block hidden">Профиль</span>
         </li>
       </router-link>

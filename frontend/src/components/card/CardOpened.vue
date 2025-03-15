@@ -145,7 +145,7 @@ onUnmounted(() => {
       >
         <img
           class="z-10 transition card-lightning"
-          :src="'/sneakers/' + item.imageUrl + '.png'"
+          :src="'/src/assets/sneakers' + item.imageUrl + '.png'"
           alt="Sneaker"
         />
         <div class="glow" :style="glowStyle"></div>
@@ -168,7 +168,7 @@ onUnmounted(() => {
           <img
             v-if="isAuth"
             @click="addToFavorite(item)"
-            :src="isFavorite ? '/like-2.svg' : '/like-1.svg'"
+            :src="isFavorite ? '/src/assets/imgs/like-2.svg' : '/src/assets/imgs/like-1.svg'"
             alt="likeButton"
             class="cursor-pointer h-12"
           />
@@ -248,7 +248,7 @@ onUnmounted(() => {
 .bounce {
   width: 50px;
   height: 50px;
-  background: url('/arrow-down-short.svg') no-repeat;
+  background: url('/src/assets/imgs/arrow-down-short.svg') no-repeat;
   background-size: contain;
   position: relative;
   animation: bounce 1.5s infinite;

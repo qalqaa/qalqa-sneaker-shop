@@ -30,11 +30,15 @@ const goToDetails = () => {
   >
     <img
       v-if="isAuth"
-      :src="isFavorite ? '/like-2.svg' : '/like-1.svg'"
+      :src="isFavorite ? '/src/assets/imgs/like-2.svg' : '/src/assets/imgs/like-1.svg'"
       alt="likeButton"
       class="absolute cursor-pointer z-10 top-8 left-8"
     />
-    <img class="transition card-lightning" :src="'/sneakers/' + imgUrl + '.png'" alt="Sneaker" />
+    <img
+      class="transition card-lightning"
+      :src="'/src/assets/sneakers/' + imgUrl + '.png'"
+      alt="Sneaker"
+    />
 
     <p class="mb-5">{{ title }}</p>
     <div class="flex justify-between">

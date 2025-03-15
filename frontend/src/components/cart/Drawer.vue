@@ -1,10 +1,10 @@
 <script setup>
 import axios from 'axios'
-import { inject, ref, computed } from 'vue'
+import { computed, inject, ref } from 'vue'
 
-import DrawerHead from './DrawerHead.vue'
 import CartItemList from '../cart/CartItemList.vue'
 import infoBlock from '../ui/infoBlock.vue'
+import DrawerHead from './DrawerHead.vue'
 
 const props = defineProps({
   totalPrice: Number,
@@ -48,14 +48,14 @@ const buttonDisabled = computed(() => isLoading.value || cartIsEmpty.value)
         title="Корзина пуста"
         descr="Добавьте хотя бы одну пару кроссовок, чтобы оформить
     заказ."
-        imgUrl="/package-icon.png"
+        imgUrl="/src/assets/imgs/package-icon.png"
       />
 
       <infoBlock
         v-if="orderId"
         title="Заказ оформлен"
         :descr="`Ваш заказ #${orderId} скоро будет передан курьерской службе.`"
-        imgUrl="/order-success-icon.png"
+        imgUrl="/src/assets/imgs/order-success-icon.png"
       />
     </div>
 
